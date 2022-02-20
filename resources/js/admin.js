@@ -2,7 +2,6 @@ import '../css/admin.css'
 
 import '@hotwired/turbo'
 
-import Editor from './scripts/editor'
 import Datepicker from './scripts/datepicker'
 
 import Alpine from 'alpinejs'
@@ -24,7 +23,6 @@ Alpine.plugin(focus)
 Alpine.start()
 
 document.addEventListener('turbo:load', () => {
-  new Editor()
   new Datepicker()
 })
 

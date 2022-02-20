@@ -1746,13 +1746,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@deskeen/markdown@npm:^5.1.3":
-  version: 5.1.3
-  resolution: "@deskeen/markdown@npm:5.1.3"
-  checksum: 60ad79b4e6d9de3bf1e4bc20cd3c528cf21e7a540ad90ac62b94f3c8b5739044de9a37e35ef2c6fbe20653b3abd058f6d62e4bb28d85792f9d51f0f025a35e56
-  languageName: node
-  linkType: hard
-
 "@discoveryjs/json-ext@npm:^0.5.0":
   version: 0.5.6
   resolution: "@discoveryjs/json-ext@npm:0.5.6"
@@ -2949,52 +2942,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"adonis-starter@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "adonis-starter@workspace:."
-  dependencies:
-    "@adonisjs/assembler": ^5.4.1
-    "@adonisjs/attachment-lite": ^1.0.1
-    "@adonisjs/auth": ^8.0.9
-    "@adonisjs/bouncer": ^2.2.5
-    "@adonisjs/core": ^5.4.2
-    "@adonisjs/i18n": ^1.5.3
-    "@adonisjs/lucid": ^16.2.1
-    "@adonisjs/lucid-slugify": ^2.1.3
-    "@adonisjs/mail": ^7.2.4
-    "@adonisjs/repl": ^3.1.8
-    "@adonisjs/session": ^6.1.2
-    "@adonisjs/shield": ^7.0.7
-    "@adonisjs/view": ^6.1.1
-    "@alpinejs/focus": ^3.9.0
-    "@deskeen/markdown": ^5.1.3
-    "@hotwired/turbo": ^7.1.0
-    "@symfony/webpack-encore": ^1.8.1
-    "@tailwindcss/forms": ^0.4.0
-    adonis-preset-ts: ^2.1.0
-    alpinejs: ^3.9.0
-    autoprefixer: ^10.4.2
-    color: ^4.2.1
-    flatpickr: ^4.6.9
-    luxon: ^2.0.2
-    phc-argon2: ^1.1.2
-    pino-pretty: ^7.5.1
-    postcss-loader: ^6.2.1
-    prettier: ^2.5.1
-    prettier-plugin-tailwindcss: ^0.1.7
-    proxy-addr: ^2.0.7
-    quill: ^1.3.7
-    reflect-metadata: ^0.1.13
-    source-map-support: ^0.5.21
-    sqlite3: ^5.0.2
-    tailwindcss: ^3.0.0
-    typescript: ~4.5
-    uuid: ^8.3.2
-    youch: ^3.1.0
-    youch-terminal: ^2.1.2
-  languageName: unknown
-  linkType: soft
-
 "agent-base@npm:6, agent-base@npm:^6.0.2":
   version: 6.0.2
   resolution: "agent-base@npm:6.0.2"
@@ -4095,13 +4042,6 @@ __metadata:
   dependencies:
     mimic-response: ^1.0.0
   checksum: 2d0e61547fc66276e0903be9654ada422515f5a15741691352000d47e8c00c226061221074ce2c0064d12e975e84a8687cfd35d8b405750cb4e772f87b256eda
-  languageName: node
-  linkType: hard
-
-"clone@npm:^2.1.1":
-  version: 2.1.2
-  resolution: "clone@npm:2.1.2"
-  checksum: aaf106e9bc025b21333e2f4c12da539b568db4925c0501a1bf4070836c9e848c892fa22c35548ce0d1132b08bbbfa17a00144fe58fccdab6fa900fec4250f67d
   languageName: node
   linkType: hard
 
@@ -5455,13 +5395,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventemitter3@npm:^2.0.3":
-  version: 2.0.3
-  resolution: "eventemitter3@npm:2.0.3"
-  checksum: dfbf4a07144afea0712d8e6a7f30ae91beb7c12c36c3d480818488aafa437d9a331327461f82c12dfd60a4fbad502efc97f684089cda02809988b84a23630752
-  languageName: node
-  linkType: hard
-
 "eventemitter3@npm:^4.0.0":
   version: 4.0.7
   resolution: "eventemitter3@npm:4.0.7"
@@ -5574,7 +5507,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.0, extend@npm:^3.0.2, extend@npm:~3.0.2":
+"extend@npm:^3.0.0, extend@npm:~3.0.2":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: a50a8309ca65ea5d426382ff09f33586527882cf532931cb08ca786ea3146c0553310bda688710ff61d7668eba9f96b923fe1420cdf56a2c3eaf30fcab87b515
@@ -5615,13 +5548,6 @@ __metadata:
   version: 3.1.3
   resolution: "fast-deep-equal@npm:3.1.3"
   checksum: e21a9d8d84f53493b6aa15efc9cfd53dd5b714a1f23f67fb5dc8f574af80df889b3bce25dc081887c6d25457cce704e636395333abad896ccdec03abaf1f3f9d
-  languageName: node
-  linkType: hard
-
-"fast-diff@npm:1.1.2":
-  version: 1.1.2
-  resolution: "fast-diff@npm:1.1.2"
-  checksum: 2ef726603e22a89ef27225bfaef24c17e3aec188df24da4629d5f012b23a884e09a0c7299ff37a0aec7aa788755bd554f5801f698de4deeffce83308bd11405d
   languageName: node
   linkType: hard
 
@@ -7356,6 +7282,50 @@ __metadata:
   languageName: node
   linkType: hard
 
+"karaoke@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "karaoke@workspace:."
+  dependencies:
+    "@adonisjs/assembler": ^5.4.1
+    "@adonisjs/attachment-lite": ^1.0.1
+    "@adonisjs/auth": ^8.0.9
+    "@adonisjs/bouncer": ^2.2.5
+    "@adonisjs/core": ^5.4.2
+    "@adonisjs/i18n": ^1.5.3
+    "@adonisjs/lucid": ^16.2.1
+    "@adonisjs/lucid-slugify": ^2.1.3
+    "@adonisjs/mail": ^7.2.4
+    "@adonisjs/repl": ^3.1.8
+    "@adonisjs/session": ^6.1.2
+    "@adonisjs/shield": ^7.0.7
+    "@adonisjs/view": ^6.1.1
+    "@alpinejs/focus": ^3.9.0
+    "@hotwired/turbo": ^7.1.0
+    "@symfony/webpack-encore": ^1.8.1
+    "@tailwindcss/forms": ^0.4.0
+    adonis-preset-ts: ^2.1.0
+    alpinejs: ^3.9.0
+    autoprefixer: ^10.4.2
+    color: ^4.2.1
+    flatpickr: ^4.6.9
+    luxon: ^2.0.2
+    phc-argon2: ^1.1.2
+    pino-pretty: ^7.5.1
+    postcss-loader: ^6.2.1
+    prettier: ^2.5.1
+    prettier-plugin-tailwindcss: ^0.1.7
+    proxy-addr: ^2.0.7
+    reflect-metadata: ^0.1.13
+    source-map-support: ^0.5.21
+    sqlite3: ^5.0.2
+    tailwindcss: ^3.0.0
+    typescript: ~4.5
+    uuid: ^8.3.2
+    youch: ^3.1.0
+    youch-terminal: ^2.1.2
+  languageName: unknown
+  linkType: soft
+
 "keyv@npm:^4.0.0":
   version: 4.1.1
   resolution: "keyv@npm:4.1.1"
@@ -8849,13 +8819,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parchment@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "parchment@npm:1.1.4"
-  checksum: 47997567424d1ad8648046091a06b3a5423ed83f9dfa421d7fd93e0032e79aedd8db5499ff55327e08eebd89d8e927704a646f87d45d4bcfe63016aa5a88947d
-  languageName: node
-  linkType: hard
-
 "parent-module@npm:^1.0.0":
   version: 1.0.1
   resolution: "parent-module@npm:1.0.1"
@@ -9785,31 +9748,6 @@ __metadata:
   version: 5.1.1
   resolution: "quick-lru@npm:5.1.1"
   checksum: a516faa25574be7947969883e6068dbe4aa19e8ef8e8e0fd96cddd6d36485e9106d85c0041a27153286b0770b381328f4072aa40d3b18a19f5f7d2b78b94b5ed
-  languageName: node
-  linkType: hard
-
-"quill-delta@npm:^3.6.2":
-  version: 3.6.3
-  resolution: "quill-delta@npm:3.6.3"
-  dependencies:
-    deep-equal: ^1.0.1
-    extend: ^3.0.2
-    fast-diff: 1.1.2
-  checksum: e62ed339838077841db401da3181bdf559c6667d014a671767788380c5be13a6205603bcdd27445260e6f6b2b5519161e1000023e521e3b2ff087270fa67fef6
-  languageName: node
-  linkType: hard
-
-"quill@npm:^1.3.7":
-  version: 1.3.7
-  resolution: "quill@npm:1.3.7"
-  dependencies:
-    clone: ^2.1.1
-    deep-equal: ^1.0.1
-    eventemitter3: ^2.0.3
-    extend: ^3.0.2
-    parchment: ^1.1.4
-    quill-delta: ^3.6.2
-  checksum: db3e265a8410a4554e50a18cae4ebc0b43a996a776bcf03e26abcadbf617f4db329d49a0fa3ada6a70538a369bbbdc8fa7a66086f194b481914bf1adbab16f8f
   languageName: node
   linkType: hard
 
