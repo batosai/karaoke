@@ -1,0 +1,34 @@
+<header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
+  <div
+    class="container flex items-center justify-between h-full px-6 mx-auto text-indigo-600 dark:text-indigo-300"
+  >
+    <!-- Mobile hamburger -->
+    <button
+      class="p-1 -ml-1 mr-5 rounded-md md:hidden focus:outline-none focus:shadow-outline-indigo"
+      @click="sidebar.toggle"
+      aria-label="Menu"
+    >
+      @!svg.burger()
+    </button>
+
+    <!-- Search input -->
+    @!component('components/admin/search')
+
+    <ul class="flex items-center flex-shrink-0 space-x-6">
+      <!-- Theme toggler -->
+      <li class="flex">
+        @!component('components/admin/theme')
+      </li>
+
+      <!-- Notifications menu -->
+      <li class="relative">
+        @!component('components/admin/notification')
+      </li>
+
+      <!-- Profile menu -->
+      <li class="relative">
+        @!component('components/admin/profile')
+      </li>
+    </ul>
+  </div>
+</header>

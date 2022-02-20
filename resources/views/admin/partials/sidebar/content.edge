@@ -1,0 +1,78 @@
+<div class="py-4 text-gray-500 dark:text-gray-400">
+  <a
+    class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+    href="{{ route('admin_dashboard') }}"
+  >
+  {{ t('app.title') }}
+  </a>
+  <ul class="mt-6">
+    <li class="relative px-6 py-3">
+      @component('components/admin/sidebar/link', {
+        isActive: request.matchesRoute('admin_dashboard'),
+        text: t('admin.shared.dashboard'),
+        href: route('admin_dashboard')
+      })
+        @!svg.dashboard()
+      @end
+    </li>
+  </ul>
+  <ul>
+    @can('UserPolicy.viewList')
+    <li class="relative px-6 py-3">
+      @component('components/admin/sidebar/link', {
+        isActive: request.matchesRoute(['admin_users.index', 'admin_users.create', 'admin_users.store', 'admin_users.edit', 'admin_users.update']) ,
+        text: t('admin.shared.users'),
+        href: route('admin_users.index')
+      })
+        @!svg.users()
+      @end
+    </li>
+    @end
+    <li class="relative px-6 py-3" x-data="dropdown()">
+      <button
+        class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+        @click="toggle"
+        aria-haspopup="true"
+      >
+        <span class="inline-flex items-center">
+          @!svg.settings()
+          <span class="ml-4">{{ t('admin.shared.settings') }}</span>
+        </span>
+        @!svg.arrowDown()
+      </button>
+
+      <template x-if="isOpen">
+        <ul
+          x-transition:enter="transition-all ease-in-out duration-300"
+          x-transition:enter-start="opacity-25 max-h-0"
+          x-transition:enter-end="opacity-100 max-h-xl"
+          x-transition:leave="transition-all ease-in-out duration-300"
+          x-transition:leave-start="opacity-100 max-h-xl"
+          x-transition:leave-end="opacity-0 max-h-0"
+          class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+          aria-label="submenu"
+        >
+          <li
+            class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+          >
+            <a class="w-full" href="#">item 1</a>
+          </li>
+          <li
+            class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+          >
+            <a class="w-full" href="#">
+              item 2
+            </a>
+          </li>
+          <li
+            class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+          >
+            <a class="w-full" href="#">
+              item 3
+            </a>
+          </li>
+        </ul>
+      </template>
+    </li>
+  </ul>
+</div>

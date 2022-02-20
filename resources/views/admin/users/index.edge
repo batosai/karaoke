@@ -1,0 +1,131 @@
+@layout('layouts/admin')
+
+@set('title', t('admin.user.title.list'))
+
+@section('body')
+  <div class="container px-6 mx-auto grid">
+    @!title({ text: t('admin.user.title.list') })
+
+    <!-- Cards -->
+    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+      <!-- Card -->
+      @admin.statistic.card({
+        title: t('admin.user.total'),
+        text: users.total,
+      })
+        @!svg.users()
+      @end
+    </div>
+
+    <div>
+      @!button.regular({ text: t('admin.user.new'), url: route('admin_users.create'), classes: 'float-right mb-4' })
+    </div>
+
+    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+      <div class="w-full overflow-x-auto">
+        <table class="w-full whitespace-no-wrap">
+          <thead>
+            <tr
+              class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+            >
+              <th class="px-4 py-3">{{ t('admin.shared.user') }}</th>
+              <th class="px-4 py-3">{{ t('admin.shared.role') }}</th>
+              <th class="px-4 py-3">{{ t('admin.shared.status') }}</th>
+              <th class="px-4 py-3">{{ t('admin.shared.date') }}</th>
+              <th class="px-4 py-3">{{ t('admin.shared.actions') }}</th>
+            </tr>
+          </thead>
+          <tbody
+            class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+          >
+            @each(user in users)
+            <tr class="text-gray-700 dark:text-gray-400">
+              <td class="px-4 py-3">
+                <div class="flex items-center text-sm">
+                  <!-- Avatar with inset shadow -->
+                  <div
+                    class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                  >
+                    @if(user.avatar)
+                      <img
+                        class="object-cover w-full h-full rounded-full"
+                        src="{{ user.avatar.url }}"
+                        alt=""
+                        loading="lazy"
+                      />
+                      <div
+                        class="absolute inset-0 rounded-full shadow-inner"
+                        aria-hidden="true"
+                      ></div>
+                    @else
+                      <div
+                        class="p-3 w-10 text-orange-500 bg-orange-100 rounded-full dark:text-white dark:bg-gray-500"
+                      >
+                        @!svg.profile()
+                      </div>
+                    @end
+                  </div>
+                  <div>
+                    <p class="font-semibold">{{ user.username }}</p>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">
+                      {{ user.email }}
+                    </p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4 py-3 text-xs">
+                <span
+                  class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                >
+                {{ user.role.charAt(0).toUpperCase() + user.role.slice(1) }}
+                </span>
+              </td>
+              <td class="px-4 py-3 text-xs">
+                @if(user.disabled_on || user.blocked)
+                <span
+                  class="px-2 py-1 font-semibold leading-tight text-red-700 bg-green-100 rounded-full dark:bg-red-700 dark:text-green-100"
+                >
+                  {{ t('admin.shared.disabled') }}
+                </span>
+                @else
+                <span
+                  class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                >
+                  {{ t('admin.shared.enabled') }}
+                </span>
+                @end
+              </td>
+              <td class="px-4 py-3 text-sm">
+                {{ t('app.date', { value: user.createdAt }) }}
+              </td>
+              <td class="px-4 py-3">
+                <div class="flex items-center space-x-4 text-sm" x-data="modal()">
+                  <a href="{{route('admin_users.edit', {id: user.id})}}"
+                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-indigo-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                    aria-label="Edit"
+                  >
+                    @!svg.edit()
+                  </a>
+                  @can('UserPolicy.delete', user)
+                    <form @submit.prevent="form = $el; open()" action="{{route('admin_users.destroy', {id: user.id}, { qs: { _method: 'DELETE' }})}}" method="POST">
+                      {{ csrfField() }}
+                      <button
+                        class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-indigo-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                        aria-label="Delete"
+                      >
+                        @!svg.delete()
+                      </button>
+                      @!admin.confirm({ title: `Delete ${user.username}`, text: 'Are you sure ?'})
+                    </form>
+                  @end
+                </div>
+              </td>
+            </tr>
+            @end
+          </tbody>
+        </table>
+      </div>
+      @!admin.pagination({ object: users })
+    </div>
+  </div>
+@end

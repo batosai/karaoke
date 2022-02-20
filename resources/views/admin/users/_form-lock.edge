@@ -1,0 +1,18 @@
+{{ csrfField() }}
+
+@form.control({
+  name: 'blocked',
+  errorKey: 'errors.blocked'
+})
+  @form.label({ classes:"block mb-2" })
+    @!form.radio({ type: 'radio', value: 'true', checked: user?.blocked ? true : false })
+    {{ t('form.user.yes') }}
+  @end
+  @form.label({ classes:"block mb-2" })
+    @!form.radio({ type: 'radio', value: 'false', checked: user?.blocked ? false : true })
+    {{ t('form.user.no') }}
+  @end
+  @!form.error()
+@end
+
+@!form.submit({ text: t('form.shared.update') })

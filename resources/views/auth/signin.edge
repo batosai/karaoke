@@ -1,0 +1,57 @@
+@layout('layouts/login')
+
+@set('title', t('auth.page.signin.title'))
+
+@section('body')
+  @!title({ text: t('auth.page.signin.title') })
+
+  @if (flashMessages.get('auth.errors'))
+    <p class="text-red-700 mt-1.5 text-sm font-medium">{{ t('auth.E_INVALID_AUTH_UID') }}</p>
+  @end
+
+  @if (flashMessages.get('auth.blocked'))
+    <p class="text-red-700 mt-1.5 text-sm font-medium">{{ flashMessages.get('auth.blocked') }}</p>
+  @end
+
+  <form action="{{ route('auth.signin') }}" method="POST">
+    {{ csrfField() }}
+
+    @form.control({
+      name: 'email',
+      placeholder:'jane.doe@sample.com',
+      errorKey: 'auth.errors.uid'
+    })
+      @!form.label({ title: t('form.shared.email'), classes:'block mb-2' })
+      @!form.input({ type: 'email' })
+    @end
+
+    @form.control({
+      name: 'password',
+      placeholder:'***************',
+      errorKey: 'auth.errors.password'
+    })
+      @!form.label({ title: t('form.shared.password'), classes:'block mt-4 mb-2' })
+      @!form.input({ type: 'password' })
+    @end
+
+    @form.control({
+      name: 'remember_me'
+    })
+      @form.label({ classes:'block mt-4 mb-2' })
+        @!form.checkbox({ value: true })
+        {{ t('form.signin.remember_me') }}
+      @end
+    @end
+
+    @!form.submit({ text: t('form.signin.login') })
+  </form>
+
+  <p class="mt-4">
+    <a
+      class="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+      href="{{ route('auth.password.forgot') }}"
+    >
+      {{ t('auth.page.signin.forgot') }}
+    </a>
+  </p>
+@end

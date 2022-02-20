@@ -1,0 +1,53 @@
+{
+  "typescript": true,
+  "commands": [
+    "./commands",
+    "@adonisjs/core/build/commands/index.js",
+    "@adonisjs/repl/build/commands",
+    "@adonisjs/lucid/build/commands",
+    "@adonisjs/bouncer/build/commands",
+    "@adonisjs/mail/build/commands"
+  ],
+  "exceptionHandlerNamespace": "App/Exceptions/Handler",
+  "aliases": {
+    "App": "app",
+    "Config": "config",
+    "Database": "database",
+    "Contracts": "contracts"
+  },
+  "preloads": [
+    "./start/routes",
+    "./start/kernel",
+    "./start/bouncer",
+    {
+      "file": "./start/validator",
+      "environment": ["web"]
+    }
+  ],
+  "providers": [
+    "./providers/AppProvider",
+    "@adonisjs/core",
+    "@adonisjs/session",
+    "@adonisjs/view",
+    "@adonisjs/shield",
+    "@adonisjs/lucid",
+    "@adonisjs/auth",
+    "@adonisjs/attachment-lite",
+    "@adonisjs/bouncer",
+    "@adonisjs/mail",
+    "@adonisjs/lucid-slugify",
+    "@adonisjs/i18n"
+  ],
+  "metaFiles": [
+    {
+      "pattern": "public/**",
+      "reloadServer": false
+    },
+    {
+      "pattern": "resources/views/**/*.edge",
+      "reloadServer": false
+    },
+    "resources/lang/**/*.(json|yaml)"
+  ],
+  "aceProviders": ["@adonisjs/repl"]
+}
