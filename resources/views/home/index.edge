@@ -1,9 +1,70 @@
 @layout('layouts/default')
 
-@set('title', 'My Profile')
-@set('description', 'View a list of polls created by you')
+@set('title', 'My Karaoke')
+@set('description', '')
 
 @section('body')
-  <a href="/admin">Admin</a>
-  {{{ content }}}
+  <section x-data="destination()"></section>
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MbUIY7RXi_E" title="YouTube video player" frameborder="0"></iframe>
+  <audio autoplay controls class="remote-video" id="remote-video"></audio>
+  <section id="audio"></section>
+  <p class="socket-id"></p>
+  <button id="callButton">Call</button>
+
+  <script type="module">
+
+    //////
+
+
+    // const { RTCPeerConnection, RTCSessionDescription } = window
+    // const offerOptions = {
+    //   offerToReceiveAudio: 1,
+    //   offerToReceiveVideo: 0,
+    //   voiceActivityDetection: false
+    // };
+
+    // // const callButton = document.querySelector('button#callButton');
+
+    // // callButton.onclick = function() {
+    //   const peerConnection = new RTCPeerConnection() // micro
+    //   const peerConnection2 = new RTCPeerConnection()
+
+    //   peerConnection.onicecandidate = e => peerConnection2.addIceCandidate(e.candidate);
+    //   // peerConnection2.onicecandidate = e => peerConnection.addIceCandidate(e.candidate);
+
+    //   peerConnection2.ontrack = function({ streams: [stream] }) {
+    //     const remoteVideo = document.getElementById("remote-video");
+    //     if (remoteVideo) {
+    //       remoteVideo.srcObject = stream;
+
+    //       // var audioContext = new AudioContext()
+    //       // var gainNode = audioContext.createGain()
+
+    //       // var audioSource = audioContext.createMediaStreamSource(stream);
+    //       // var audioDestination = audioContext.createMediaStreamDestination();
+    //       // audioSource.connect(gainNode);
+    //       // gainNode.connect(audioDestination);
+    //       // gainNode.gain.value = 0.5;
+    //       // remoteVideo.srcObject = audioDestination.stream;
+    //     }
+    //   };
+
+    //   navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+    //   .then(async (mediaStream) => {
+    //     mediaStream.getTracks().forEach(track => peerConnection.addTrack(track, mediaStream));
+
+    //     const offer = await peerConnection.createOffer(offerOptions);
+    //     await peerConnection.setLocalDescription(offer);
+
+    //     await peerConnection2.setRemoteDescription(offer);
+
+    //     const answer = await peerConnection2.createAnswer();
+    //     await peerConnection2.setLocalDescription(answer);
+
+    //     await peerConnection.setRemoteDescription(answer);
+    //   })
+    //   .catch(function(err) { console.log(err.name + ": " + err.message); })
+    // // };
+
+</script>
 @end
