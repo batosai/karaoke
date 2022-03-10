@@ -1,37 +1,21 @@
+import Peer from '../libs/peer'
 import { io } from 'socket.io-client'
 
 export default () => ({
   init: () => {
-    const socket = io()
-    const { RTCPeerConnection } = window
-    const peerConnection = new RTCPeerConnection()
 
-    socket.on('connect', async () => {
-      document.querySelector('.socket-id').innerHTML = socket.id
+    const peer = new Peer()
 
+    peer.connect( async () => {
       navigator.mediaDevices.getUserMedia({ audio: true, video: false })
       .then(async mediaStream => {
+        console.log(mediaStream)
         document.querySelector('.media-id').innerHTML = mediaStream.id
-        mediaStream.getTracks().forEach(track => peerConnection.addTrack(track, mediaStream))
-
-        peerConnection.onicecandidate = e => {
-          if (e.candidate) { // Send the candidate to the remote peer
-            socket.emit("I am candidate", {
-              candidate: e.candidate
-            })
-          }
-        }
-
-        const offer = await peerConnection.createOffer()
-        await peerConnection.setLocalDescription(offer)
-
-        socket.emit("make-offer", {
-          offer,
-        })
-
-        socket.on("answer-made", async data => {
-          await peerConnection.setRemoteDescription(data.answer)
-        })
+        peer.addTrack(mediaStream)
+        // peer.newCandidate()
+        await peer.createOffer()
+        peer.answerMade()
+        peer.sendCandidate()
       })
       .catch(function(err) { console.log(err.name + ": " + err.message); })
     })

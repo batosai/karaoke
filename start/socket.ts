@@ -3,20 +3,22 @@ Ws.boot()
 
 interface Tv {
   socketId: string;
+  candidate: object;
 }
 
 let activeSockets: string[] = []
 let tv: Tv = {
   socketId: '',
+  candidate: {}
 }
 
 /**
  * Listen for incoming socket connections
  */
 Ws.io.on('connection', socket => {
-  const existingSocket = activeSockets.find(
-    existingSocket => existingSocket === socket.id
-  );
+  // const existingSocket = activeSockets.find(
+  //   existingSocket => existingSocket === socket.id
+  // );
 
   // if (!existingSocket) {
     activeSockets.push(socket.id)
@@ -25,11 +27,15 @@ Ws.io.on('connection', socket => {
     ///////
     socket.on("I am tv", data => {
       tv.socketId = data.socketId
+      activeSockets = activeSockets.filter(id => id != tv.socketId)
+      // tv.candidate = data.candidate
       console.log(tv)
     })
 
+
     socket.on("I am candidate", data => {
       socket.to(tv.socketId).emit("new candidate", {
+        socket: socket.id,
         candidate: data.candidate
       })
     })

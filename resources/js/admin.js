@@ -2,7 +2,7 @@ import '../css/admin.css'
 
 import '@hotwired/turbo'
 
-import Datepicker from './scripts/datepicker'
+import Datepicker from './libs/datepicker'
 
 import Alpine from 'alpinejs'
 import focus from '@alpinejs/focus'
