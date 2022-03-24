@@ -1,67 +1,57 @@
 import Ws from '../app/Services/Ws'
 Ws.boot()
 
-interface Tv {
-  socketId: string;
-  candidate: object;
+interface Display {
+  socketId: string
+  candidate: object
 }
 
 let activeSockets: string[] = []
-let tv: Tv = {
+let display: Display = {
   socketId: '',
-  candidate: {}
+  candidate: {},
 }
 
 /**
  * Listen for incoming socket connections
  */
 Ws.io.on('connection', socket => {
-  // const existingSocket = activeSockets.find(
-  //   existingSocket => existingSocket === socket.id
-  // );
+  activeSockets.push(socket.id)
+  // console.log(activeSockets)
 
-  // if (!existingSocket) {
-    activeSockets.push(socket.id)
-    console.log(activeSockets)
+  ///////
+  socket.on('i-am-display', data => {
+    display.socketId = data.socketId
+    activeSockets = activeSockets.filter(id => id != display.socketId)
+  })
 
-    ///////
-    socket.on("I am tv", data => {
-      tv.socketId = data.socketId
-      activeSockets = activeSockets.filter(id => id != tv.socketId)
-      // tv.candidate = data.candidate
-      console.log(tv)
+  socket.on('i-am-candidate', data => {
+    socket.to(display.socketId).emit('new-candidate', {
+      socket: socket.id,
+      candidate: data.candidate,
     })
+  })
 
-
-    socket.on("I am candidate", data => {
-      socket.to(tv.socketId).emit("new candidate", {
-        socket: socket.id,
-        candidate: data.candidate
-      })
+  socket.on('make-offer', data => {
+    socket.to(display.socketId).emit('offer-made', {
+      socket: socket.id,
+      offer: data.offer,
     })
+  })
 
-    socket.on("make-offer", data => {
-      socket.to(tv.socketId).emit("offer-made", {
-        socket: socket.id,
-        offer: data.offer
-      })
+  socket.on('make-answer', data => {
+    socket.to(data.to).emit('answer-made', {
+      socket: socket.id,
+      answer: data.answer,
     })
+  })
 
-    socket.on("make-answer", data => {
-      socket.to(data.to).emit("answer-made", {
-        socket: socket.id,
-        answer: data.answer
-      })
+  socket.on('disconnect', () => {
+    activeSockets = activeSockets.filter(
+      existingSocket => existingSocket !== socket.id,
+    )
+    socket.broadcast.emit('remove-user', {
+      socketId: socket.id,
     })
-
-    socket.on("disconnect", () => {
-      console.log('disconnnect ' + socket.id)
-      activeSockets = activeSockets.filter(
-        existingSocket => existingSocket !== socket.id
-      )
-      socket.broadcast.emit("remove-user", {
-        socketId: socket.id
-      })
-    })
-  // }
+  })
 })
