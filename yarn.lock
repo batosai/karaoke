@@ -7462,6 +7462,7 @@ __metadata:
     uuid: ^8.3.2
     youch: ^3.1.0
     youch-terminal: ^2.1.2
+    ytdl-core: ^4.11.0
   languageName: unknown
   linkType: soft
 
@@ -7749,6 +7750,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"m3u8stream@npm:^0.8.6":
+  version: 0.8.6
+  resolution: "m3u8stream@npm:0.8.6"
+  dependencies:
+    miniget: ^4.2.2
+    sax: ^1.2.4
+  checksum: b8f61c1101dd3ad873ff2f3d0e9e6a5139ad17e20990b89ae67f2585043bc2b727151ed85f3e58aabc8a1a95af28e1ee26f69af6ac9e8841ff68129eae2f5ac5
+  languageName: node
+  linkType: hard
+
 "macroable@npm:^5.1.4":
   version: 5.1.4
   resolution: "macroable@npm:5.1.4"
@@ -8027,6 +8038,13 @@ __metadata:
   bin:
     mini-svg-data-uri: cli.js
   checksum: bd1789c34907a36ae9157897b7c7f6ad700e71c8cb6d725bb2810ce6211abcaa3717333ca17408f6f8b2a44055e571cd5b78d478688e1864513cb7f8e023ae3f
+  languageName: node
+  linkType: hard
+
+"miniget@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "miniget@npm:4.2.2"
+  checksum: 577a7826cbf521b8ecb31906b3dce55c61b35398318a461f3484681572287208b7ec5a40de7b0bf0b7738f21630d015cc39ba3edcfb69146565f1528ff957612
   languageName: node
   linkType: hard
 
@@ -10425,7 +10443,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sax@npm:^1.2.4":
+"sax@npm:^1.1.3, sax@npm:^1.2.4":
   version: 1.2.4
   resolution: "sax@npm:1.2.4"
   checksum: d3df7d32b897a2c2f28e941f732c71ba90e27c24f62ee918bd4d9a8cfb3553f2f81e5493c7f0be94a11c1911b643a9108f231dd6f60df3fa9586b5d2e3e9e1fe
@@ -12336,5 +12354,16 @@ __metadata:
     mustache: ^4.2.0
     stacktracey: ^2.1.8
   checksum: 0a756daf8a03f1aae5a00aa89c277494d6cbd318522a80dd6df80988934c6e30d9b4b6198f465bf7efd4e0b13b165fc5c7274945cabcf685b21860235c8b9c13
+  languageName: node
+  linkType: hard
+
+"ytdl-core@npm:^4.11.0":
+  version: 4.11.0
+  resolution: "ytdl-core@npm:4.11.0"
+  dependencies:
+    m3u8stream: ^0.8.6
+    miniget: ^4.2.2
+    sax: ^1.1.3
+  checksum: 1ebe546da39e2a55fea6544d290f92f722416b77bb9c84322d5ca08394fb00642c6cf832ccac2feec12e9189a009af90e8185a96772e84c94599841ded21bd65
   languageName: node
   linkType: hard

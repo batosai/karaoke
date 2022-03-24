@@ -23,6 +23,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'HomeController.index').as('home')
+Route.get('/media/video', 'HomeController.video').as('video')
 Route.get('/micro', 'MicroController.index').as('micro')
 
 import './routes/auth'

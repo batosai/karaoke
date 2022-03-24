@@ -5,9 +5,14 @@
 
 @section('body')
   <section x-data="destination()"></section>
-  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MbUIY7RXi_E" title="YouTube video player" frameborder="0"></iframe>
   <section id="audio"></section>
   <p class="socket-id"></p>
+{{--  <vm-youtube video-id="DyTCOwB0DVw"></vm-youtube>  --}}
+  <vm-player no-controls autoplay>
+    <vm-video poster="/media/poster.png">
+      <source data-src="/media/video" type="video/mp4" />
+    </vm-video>
+  </vm-player>
 
   <script type="module">
 
