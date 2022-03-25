@@ -52,7 +52,6 @@ export default class Display {
         const audio = document.createElement('audio')
         audio.setAttribute('autoplay', 'true')
         audio.setAttribute('controls', 'true')
-        audio.setAttribute('class', 'remote-video')
         audio.setAttribute('id', data.socket)
 
         document.getElementById(this.audioContainer).appendChild(audio)

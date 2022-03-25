@@ -16,7 +16,6 @@ export default class Micro {
       navigator.mediaDevices
         .getUserMedia({ audio: true, video: false })
         .then(async mediaStream => {
-          document.querySelector('.media-id').innerHTML = mediaStream.id
           this.addTrack(mediaStream)
           await this.createOffer()
           this.answerMade()
