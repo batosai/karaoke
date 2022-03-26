@@ -17,6 +17,17 @@
     </li>
   </ul>
   <ul>
+    @can('TrackPolicy.viewList')
+    <li class="relative px-6 py-3">
+      @component('components/admin/sidebar/link', {
+        isActive: request.matchesRoute(['admin_tracks.index', 'admin_tracks.create', 'admin_tracks.store', 'admin_tracks.edit', 'admin_tracks.update']) ,
+        text: t('admin.shared.tracks'),
+        href: route('admin_tracks.index')
+      })
+        @!svg.track()
+      @end
+    </li>
+    @end
     @can('UserPolicy.viewList')
     <li class="relative px-6 py-3">
       @component('components/admin/sidebar/link', {

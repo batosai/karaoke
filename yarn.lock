@@ -2187,6 +2187,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stencil/core@npm:2.5.2":
+  version: 2.5.2
+  resolution: "@stencil/core@npm:2.5.2"
+  bin:
+    stencil: bin/stencil
+  checksum: c96dcaae047f4c9b36412246315c1fbd0e1478f2dcd669ff04c29c560be3a20b4d25694a890b864e2100d5371c7d848d3ed377b0438f955ad4beefdf1e5a0b82
+  languageName: node
+  linkType: hard
+
 "@symfony/webpack-encore@npm:^1.8.1":
   version: 1.8.1
   resolution: "@symfony/webpack-encore@npm:1.8.1"
@@ -2404,6 +2413,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: add79e212acd5ac76b97b9045834e03a7996aef60a814185e0459088fd290519a3c1620865d588fa36c4498bf614210d2a703af5cf80aa1dbc125db78f6edac3
+  languageName: node
+  linkType: hard
+
+"@types/fscreen@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@types/fscreen@npm:1.0.1"
+  checksum: 06ef89c263409081639bd618ca170a66bf6c8e332ae01ed453fdf3d5e6cf41d1abd5c58a0747c1d300b64fa7cdea93abf7a92d5cb5f62602c002308011d2e1c4
   languageName: node
   linkType: hard
 
@@ -2650,6 +2666,19 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 94e949ef66909334eb8d77079a28ce8fcea8780295eadab1bccdbb85adc0534d96d9a61910a80720769c6019e7bfaba90cea6f95f58e93de135b766074aa53cb
+  languageName: node
+  linkType: hard
+
+"@vime/core@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "@vime/core@npm:5.3.1"
+  dependencies:
+    "@stencil/core": 2.5.2
+    "@types/fscreen": ^1.0.1
+    fscreen: ^1.2.0
+    mitt: ^3.0.0
+    stencil-wormhole: ^3.4.1
+  checksum: f50cdddbe19ce0e034f5c026559af568e07bef0e37128fb338cdaf0ce87cd57e443fe1f2e56baa82a7ceb21e7358026ef426196dd8e704763ec58562bf170c3a
   languageName: node
   linkType: hard
 
@@ -6008,6 +6037,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fscreen@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "fscreen@npm:1.2.0"
+  checksum: ac50f9ac52a157b8fe6aaecdf9efa7c1cfa90b42a76c3bc6b85372fab05c5a9cd72c1b7f4c2e273eba1a0e630e381fd72ae135fcc57acd05a0943d5d0c21b451
+  languageName: node
+  linkType: hard
+
 "fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
@@ -7440,6 +7476,7 @@ __metadata:
     "@symfony/webpack-encore": ^1.8.1
     "@tailwindcss/forms": ^0.4.0
     "@types/socket.io": ^3.0.2
+    "@vime/core": ^5.3.1
     adonis-preset-ts: ^2.1.0
     alpinejs: ^3.9.0
     autoprefixer: ^10.4.2
@@ -8157,6 +8194,13 @@ __metadata:
     minipass: ^3.0.0
     yallist: ^4.0.0
   checksum: f1fdeac0b07cf8f30fcf12f4b586795b97be856edea22b5e9072707be51fc95d41487faec3f265b42973a304fe3a64acd91a44a3826a963e37b37bafde0212c3
+  languageName: node
+  linkType: hard
+
+"mitt@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "mitt@npm:3.0.0"
+  checksum: f7be5049d27d18b1dbe9408452d66376fa60ae4a79fe9319869d1b90ae8cbaedadc7e9dab30b32d781411256d468be5538996bb7368941c09009ef6bbfa6bfc7
   languageName: node
   linkType: hard
 
@@ -11147,6 +11191,13 @@ __metadata:
   version: 1.5.0
   resolution: "statuses@npm:1.5.0"
   checksum: c469b9519de16a4bb19600205cffb39ee471a5f17b82589757ca7bd40a8d92ebb6ed9f98b5a540c5d302ccbc78f15dc03cc0280dd6e00df1335568a5d5758a5c
+  languageName: node
+  linkType: hard
+
+"stencil-wormhole@npm:^3.4.1":
+  version: 3.4.1
+  resolution: "stencil-wormhole@npm:3.4.1"
+  checksum: d509b9704b2350db09785306828d19642ea7a51d480acd61678649481fab159b285bc4fc476014b0708645d0b6053856fef48e68c9c49af8e98c8061918f423d
   languageName: node
   linkType: hard
 

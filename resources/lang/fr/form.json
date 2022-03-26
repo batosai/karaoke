@@ -26,5 +26,9 @@
     "slug": "Slug",
     "seo_title": "SEO Titre",
     "seo_description": "SEO Description"
+  },
+  "track": {
+    "title": "Titre",
+    "url": "URL"
   }
 }

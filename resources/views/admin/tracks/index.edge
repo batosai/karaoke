@@ -1,0 +1,81 @@
+@layout('layouts/admin')
+
+@set('title', t('admin.track.title.list'))
+
+@section('body')
+  <div class="container px-6 mx-auto grid">
+    @!title({ text: t('admin.track.title.list') })
+
+    <!-- Cards -->
+    <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+      <!-- Card -->
+      @admin.statistic.card({
+        title: t('admin.track.total'),
+        text: tracks.total,
+      })
+        @!svg.track()
+      @end
+    </div>
+
+    <div>
+      @!button.regular({ text: t('admin.track.new'), url: route('admin_tracks.create'), classes: 'float-right mb-4' })
+    </div>
+
+    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+      <div class="w-full overflow-x-auto">
+        <table class="w-full whitespace-no-wrap">
+          <thead>
+            <tr
+              class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+            >
+              <th class="px-4 py-3">{{ t('admin.shared.title') }}</th>
+              <th class="px-4 py-3">{{ t('admin.shared.url') }}</th>
+              <th class="px-4 py-3">{{ t('admin.shared.date') }}</th>
+              <th class="px-4 py-3">{{ t('admin.shared.actions') }}</th>
+            </tr>
+          </thead>
+          <tbody
+            class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+          >
+            @each(track in tracks)
+            <tr class="text-gray-700 dark:text-gray-400">
+              <td class="px-4 py-3">
+                <p class="font-semibold">{{ track.title }}</p>
+              </td>
+              <td class="px-4 py-3 text-xs">
+                <p class="font-semibold">{{ track.url }}</p>
+              </td>
+              <td class="px-4 py-3 text-sm">
+                {{ t('app.date', { value: track.createdAt }) }}
+              </td>
+              <td class="px-4 py-3">
+                <div class="flex items-center space-x-4 text-sm" x-data="modal()">
+                  <a href="{{route('admin_tracks.edit', {id: track.id})}}"
+                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-indigo-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                    aria-label="Edit"
+                  >
+                    @!svg.edit()
+                  </a>
+                  @can('TrackPolicy.delete', track)
+                    <form @submit.prevent="open(); form=$el" action="{{route('admin_tracks.destroy', {id: track.id}, { qs: { _method: 'DELETE' }})}}" method="POST">
+                      {{ csrfField() }}
+                      <button
+                        class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-indigo-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                        aria-label="Delete"
+                      >
+                        @!svg.delete()
+                      </button>
+                      @!admin.confirm({ title: `Delete ${track.title}`, text: 'Are you sure ?'})
+                    </form>
+                  @end
+                </div>
+              </td>
+            </tr>
+            @end
+          </tbody>
+        </table>
+      </div>
+      @!admin.pagination({ object: tracks })
+    </div>
+  </div>
+@end

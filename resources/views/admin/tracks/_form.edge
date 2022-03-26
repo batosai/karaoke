@@ -1,0 +1,32 @@
+{{ csrfField() }}
+
+@form.control({
+  name: 'title',
+  require: false,
+  errorKey: 'errors.title'
+})
+  @!form.label({ title: t('form.track.title'), classes:"block mb-2" })
+  @!form.input({ type: 'text', value: track ? track.title : '' })
+  @!form.error()
+@end
+
+@form.control({
+  name: 'url',
+  require: true,
+  errorKey: 'errors.url'
+})
+  @!form.label({ title: t('form.track.url'), classes:"block mb-2" })
+  @!form.input({ type: 'text', value: track ? track.url : '' })
+  @!form.error()
+@end
+
+@!form.submit({ text: track ? t('form.shared.update') : t('form.shared.create') })
+
+@if(track && track.url)
+  <br />
+  <vm-player controls>
+    <vm-video>
+      <source data-src="{{route('media.show', {id: track.id})}}" type="video/mp4" />
+    </vm-video>
+  </vm-player>
+@end

@@ -8,9 +8,9 @@
   <section id="audio"></section>
   <p class="socket-id"></p>
 {{--  <vm-youtube video-id="DyTCOwB0DVw"></vm-youtube>  --}}
-  <vm-player no-controls autoplay>
-    <vm-video poster="/media/poster.png">
-      <source data-src="/media/video" type="video/mp4" />
+  <vm-player no-controls autoplay muted language="fr">
+    <vm-video>
+      <source data-src="{{route('media.show', {id: track.id})}}" type="video/mp4" />
     </vm-video>
   </vm-player>
 

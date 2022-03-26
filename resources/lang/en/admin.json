@@ -6,9 +6,11 @@
     "logout": "Log out",
     "dashboard": "Dashboard",
     "pages": "Pages",
+    "tracks": "Tracks",
     "users": "Users",
 
     "title": "Title",
+    "url": "URL",
     "user": "User",
     "status": "Status",
     "role": "Role",
@@ -20,6 +22,15 @@
 
     "draft": "Draft",
     "publish": "Publish"
+  },
+  "track": {
+    "title": {
+      "list": "List of tracks",
+      "create": "add track",
+      "edit": "Edit track"
+    },
+    "new": "Add track",
+    "total": "Number of tracks"
   },
   "user": {
     "title": {

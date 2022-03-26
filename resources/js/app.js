@@ -6,7 +6,18 @@ import Alpine from 'alpinejs'
 import destination from './components/destination'
 import source from './components/source'
 
+// import { VmPlayer, VmVideo, VmFile, defineCustomElements } from '@vime/core';
+
+// customElements.define('vm-player', VmPlayer);
+// customElements.define('vm-video', VmVideo);
+// customElements.define('vm-file', VmFile);
+// defineCustomElements();
+
 Alpine.data('destination', destination)
 Alpine.data('source', source)
 
 Alpine.start()
+
+document.addEventListener('turbo:load', async () => {
+  await import('@vime/core/dist/vime/vime.esm.js')
+})

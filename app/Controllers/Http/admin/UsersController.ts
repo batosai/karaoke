@@ -1,11 +1,10 @@
-import User from 'App/Models/User'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { Attachment } from '@ioc:Adonis/Addons/AttachmentLite'
 import Route from '@ioc:Adonis/Core/Route'
 import UserValidator from 'App/Validators/UserValidator'
 import UserLockValidator from 'App/Validators/UserLockValidator'
 import SignupMailer from 'App/Mailers/SignupMailer'
-
+import User from 'App/Models/User'
 export default class UsersController {
   public async index({ request, view, bouncer }: HttpContextContract) {
     await bouncer.with('UserPolicy').authorize('viewList')

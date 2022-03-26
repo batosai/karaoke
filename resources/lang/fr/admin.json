@@ -6,9 +6,11 @@
     "logout": "Déconnexion",
     "dashboard": "Tableau de bord",
     "pages": "Pages",
+    "tracks": "Pistes",
     "users": "Utilisateurs",
 
     "title": "Titre",
+    "url": "URL",
     "user": "Utilisateur",
     "status": "Status",
     "role": "Rôle",
@@ -20,6 +22,15 @@
 
     "draft": "Brouillon",
     "publish": "Publié"
+  },
+  "track": {
+    "title": {
+      "list": "Liste des pistes",
+      "create": "Ajouter une piste",
+      "edit": "Editer une piste"
+    },
+    "new": "Ajouter une piste",
+    "total": "Nombre de pistes"
   },
   "user": {
     "title": {
