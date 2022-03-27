@@ -32,6 +32,18 @@ Encore.setOutputPath('./public/assets')
 */
 Encore.setPublicPath('/assets')
 
+Encore.addLoader({
+  test: /\.svelte$/,
+  loader: 'svelte-loader',
+},
+{
+  // required to prevent errors from Svelte on Webpack 5+, omit on Webpack 4
+  test: /node_modules\/svelte\/.*\.mjs$/,
+  resolve: {
+      fullySpecified: false
+  }
+})
+
 /*
 |--------------------------------------------------------------------------
 | Entrypoints
@@ -203,6 +215,12 @@ config.infrastructureLogging = {
   level: 'warn',
 }
 config.stats = 'errors-warnings'
+
+config.resolve.mainFields = ['svelte', 'browser', 'module', 'main'];
+config.resolve.extensions = ['.mjs', '.js', '.svelte'];
+
+let svelte = config.module.rules.pop();
+config.module.rules.unshift(svelte);
 
 /*
 |--------------------------------------------------------------------------

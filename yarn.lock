@@ -1769,6 +1769,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eidellev/inertia-adonisjs@npm:6.0.0":
+  version: 6.0.0
+  resolution: "@eidellev/inertia-adonisjs@npm:6.0.0"
+  dependencies:
+    "@types/md5": ^2.3.1
+    html-entities: ^2.3.2
+    md5: ^2.3.0
+  peerDependencies:
+    "@adonisjs/core": ">=5"
+  checksum: 86eef63496f9fb8c03e85644aa5a36dcc8ea6aa2846148f2fd4fe20da5d17ee4478c3d2264207e4df2263a3c9b0651f864b3105678247e9d5806addf040c60c0
+  languageName: node
+  linkType: hard
+
 "@formatjs/ecma402-abstract@npm:1.11.3":
   version: 1.11.3
   resolution: "@formatjs/ecma402-abstract@npm:1.11.3"
@@ -1829,6 +1842,40 @@ __metadata:
   version: 7.1.0
   resolution: "@hotwired/turbo@npm:7.1.0"
   checksum: 4f71ebf2ff6a396d4031d048fa4d4dba6039aed9ad68436e6df4527e975acd8427c7d2f9b3e7f61f3e9c1af987193adf4e2b640c4033d4afd3e1f914ed05ba9f
+  languageName: node
+  linkType: hard
+
+"@inertiajs/inertia-svelte@npm:latest":
+  version: 0.8.0
+  resolution: "@inertiajs/inertia-svelte@npm:0.8.0"
+  dependencies:
+    lodash.isequal: ^4.5.0
+  peerDependencies:
+    "@inertiajs/inertia": ^0.11.0
+    svelte: ^3.20.0
+  checksum: e1ff5f6a640ee6d90ea1a3346dde1a07a3d421906d88a25768e2aae1c0d77f0c48a746db9aedbb7c2e385eb2616446ea6f31011364f38d6904a45c6f568866ed
+  languageName: node
+  linkType: hard
+
+"@inertiajs/inertia@npm:latest":
+  version: 0.11.0
+  resolution: "@inertiajs/inertia@npm:0.11.0"
+  dependencies:
+    axios: ^0.21.1
+    deepmerge: ^4.0.0
+    qs: ^6.9.0
+  checksum: 69653f3cb45fb0b988fd3cafbc743bbe95d7a2ad6a1845351e316e21a7b6f78e61ceddf56a82a8dba332aa25311ce74b00b929544a81739988b1b222ba47a784
+  languageName: node
+  linkType: hard
+
+"@inertiajs/progress@npm:^0.2.7":
+  version: 0.2.7
+  resolution: "@inertiajs/progress@npm:0.2.7"
+  dependencies:
+    nprogress: ^0.2.0
+  peerDependencies:
+    "@inertiajs/inertia": ^0.6.0 || ^0.7.0 || ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0
+  checksum: 8c89d506b096000e5b621e3d3465fa7d07855ec45e275d9475a8f47b0431478439a838a860927c764e9d5d5600bd7f9f3bba4ccea2ef5f739d7d7f25caa96ca1
   languageName: node
   linkType: hard
 
@@ -2476,6 +2523,13 @@ __metadata:
   version: 2.0.9
   resolution: "@types/luxon@npm:2.0.9"
   checksum: 6c99741e1735aca5b784981ecec3a6ad9497b8e46cc3dd0ba625901bb5b34af4c7b1bf33e32b3e8468312ce2850b31f553f712283a8301a0ee1aacb633276738
+  languageName: node
+  linkType: hard
+
+"@types/md5@npm:^2.3.1":
+  version: 2.3.2
+  resolution: "@types/md5@npm:2.3.2"
+  checksum: ce59779c5aa9bcafe6e089f7a0be2f25fb4661d437809dd7e895e13e9369855aeee8521a0a954bb38468cd8ed2d7c84d5dbb3ba37544f5a11c8a199e5a8561b6
   languageName: node
   linkType: hard
 
@@ -3495,6 +3549,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.21.1":
+  version: 0.21.4
+  resolution: "axios@npm:0.21.4"
+  dependencies:
+    follow-redirects: ^1.14.0
+  checksum: 44245f24ac971e7458f3120c92f9d66d1fc695e8b97019139de5b0cc65d9b8104647db01e5f46917728edfc0cfd88eb30fc4c55e6053eef4ace76768ce95ff3c
+  languageName: node
+  linkType: hard
+
 "babel-code-frame@npm:^6.26.0":
   version: 6.26.0
   resolution: "babel-code-frame@npm:6.26.0"
@@ -4028,6 +4091,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"charenc@npm:0.0.2":
+  version: 0.0.2
+  resolution: "charenc@npm:0.0.2"
+  checksum: 81dcadbe57e861d527faf6dd3855dc857395a1c4d6781f4847288ab23cffb7b3ee80d57c15bba7252ffe3e5e8019db767757ee7975663ad2ca0939bb8fcaf2e5
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:^3.5.2, chokidar@npm:^3.5.3":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
@@ -4536,6 +4606,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"crypt@npm:0.0.2":
+  version: 0.0.2
+  resolution: "crypt@npm:0.0.2"
+  checksum: baf4c7bbe05df656ec230018af8cf7dbe8c14b36b98726939cef008d473f6fe7a4fad906cfea4062c93af516f1550a3f43ceb4d6615329612c6511378ed9fe34
+  languageName: node
+  linkType: hard
+
 "csrf@npm:^3.1.0":
   version: 3.1.0
   resolution: "csrf@npm:3.1.0"
@@ -4837,6 +4914,13 @@ __metadata:
   version: 0.6.0
   resolution: "deep-extend@npm:0.6.0"
   checksum: 7be7e5a8d468d6b10e6a67c3de828f55001b6eb515d014f7aeb9066ce36bd5717161eb47d6a0f7bed8a9083935b465bc163ee2581c8b128d29bf61092fdf57a7
+  languageName: node
+  linkType: hard
+
+"deepmerge@npm:^4.0.0":
+  version: 4.2.2
+  resolution: "deepmerge@npm:4.2.2"
+  checksum: a8c43a1ed8d6d1ed2b5bf569fa4c8eb9f0924034baf75d5d406e47e157a451075c4db353efea7b6bcc56ec48116a8ce72fccf867b6e078e7c561904b5897530b
   languageName: node
   linkType: hard
 
@@ -5911,7 +5995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.0":
   version: 1.14.9
   resolution: "follow-redirects@npm:1.14.9"
   peerDependenciesMeta:
@@ -6984,7 +7068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-buffer@npm:^1.1.5":
+"is-buffer@npm:^1.1.5, is-buffer@npm:~1.1.6":
   version: 1.1.6
   resolution: "is-buffer@npm:1.1.6"
   checksum: 4a186d995d8bbf9153b4bd9ff9fd04ae75068fe695d29025d25e592d9488911eeece84eefbd8fa41b8ddcc0711058a71d4c466dcf6f1f6e1d83830052d8ca707
@@ -7472,7 +7556,11 @@ __metadata:
     "@adonisjs/view": ^6.1.1
     "@alpinejs/focus": ^3.9.0
     "@babel/plugin-transform-runtime": ^7.17.0
+    "@eidellev/inertia-adonisjs": 6.0.0
     "@hotwired/turbo": ^7.1.0
+    "@inertiajs/inertia": latest
+    "@inertiajs/inertia-svelte": latest
+    "@inertiajs/progress": ^0.2.7
     "@symfony/webpack-encore": ^1.8.1
     "@tailwindcss/forms": ^0.4.0
     "@types/socket.io": ^3.0.2
@@ -7494,6 +7582,8 @@ __metadata:
     socket.io-client: ^4.4.1
     source-map-support: ^0.5.21
     sqlite3: ^5.0.2
+    svelte: ^3.46.4
+    svelte-loader: ^3.1.2
     tailwindcss: ^3.0.0
     typescript: ~4.5
     uuid: ^8.3.2
@@ -7712,6 +7802,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.isequal@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.isequal@npm:4.5.0"
+  checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
+  languageName: node
+  linkType: hard
+
 "lodash.memoize@npm:^4.1.2":
   version: 4.1.2
   resolution: "lodash.memoize@npm:4.1.2"
@@ -7884,6 +7981,17 @@ __metadata:
   bin:
     marked: bin/marked
   checksum: 21a5ecd4941bc760aba21dfd97185853ec3b464cf707ad971e3ddb3aeb2f44d0deeb36b0889932afdb6f734975a994d92f18815dd0fabadbd902bdaff997cc5b
+  languageName: node
+  linkType: hard
+
+"md5@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "md5@npm:2.3.0"
+  dependencies:
+    charenc: 0.0.2
+    crypt: 0.0.2
+    is-buffer: ~1.1.6
+  checksum: a63cacf4018dc9dee08c36e6f924a64ced735b37826116c905717c41cebeb41a522f7a526ba6ad578f9c80f02cb365033ccd67fe186ffbcc1a1faeb75daa9b6e
   languageName: node
   linkType: hard
 
@@ -8685,6 +8793,13 @@ __metadata:
     gauge: ^4.0.0
     set-blocking: ^2.0.0
   checksum: f1a4078a73ebc89896a832bbf869f491c32ecb12e0434b9a7499878ce8f29f22e72befe3c53cd8cdc9dbf4b4057297e783ab0b6746a8b067734de6205af4d538
+  languageName: node
+  linkType: hard
+
+"nprogress@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "nprogress@npm:0.2.0"
+  checksum: 66b7bec5d563ecf2d1c3d2815e6d5eb74ed815eee8563e0afa63d3f185ab1b9cf2ddd97e1ded263b9995c5019d26d600320e849e50f3747984daa033744619dc
   languageName: node
   linkType: hard
 
@@ -9929,7 +10044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:^6.10.1":
+"qs@npm:^6.10.1, qs@npm:^6.9.0":
   version: 6.10.3
   resolution: "qs@npm:6.10.3"
   dependencies:
@@ -11403,6 +11518,42 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 53b1e247e68e05db7b3808b99b892bd36fb096e6fba213a06da7fab22045e97597db425c724f2bbd6c99a3c295e1e73f3e4de78592289f38431049e1277ca0ae
+  languageName: node
+  linkType: hard
+
+"svelte-dev-helper@npm:^1.1.9":
+  version: 1.1.9
+  resolution: "svelte-dev-helper@npm:1.1.9"
+  checksum: 78a8ed951d88f5d59834ea5cafb82658c20388df03997a679f23d56148f6fb68d7d980f9092e374619e7d93b50ebb98f5185b20ad3954bba5d09372d491b6ec6
+  languageName: node
+  linkType: hard
+
+"svelte-hmr@npm:^0.14.2":
+  version: 0.14.11
+  resolution: "svelte-hmr@npm:0.14.11"
+  peerDependencies:
+    svelte: ">=3.19.0"
+  checksum: 87c339d753befeca4efc694064e1b32306f0e0db8e14929b1fb0479a40166c6de799d870f6b84cfcaee43098c6c2a8fd4211f2f72b569414da5b3b28aefda4df
+  languageName: node
+  linkType: hard
+
+"svelte-loader@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "svelte-loader@npm:3.1.2"
+  dependencies:
+    loader-utils: ^2.0.0
+    svelte-dev-helper: ^1.1.9
+    svelte-hmr: ^0.14.2
+  peerDependencies:
+    svelte: ">3.0.0"
+  checksum: 586f85d2b682bcffeda82cc94823ce48a9dea25779ab817ee7bc09aa256cf1764e9d9bd24408d9dc4c1b63d0b40c9f54d62022b55075dfdd3c5b5d61718db9bf
+  languageName: node
+  linkType: hard
+
+"svelte@npm:^3.46.4":
+  version: 3.46.4
+  resolution: "svelte@npm:3.46.4"
+  checksum: 929e6790cdd6d94c123b4b8a7b5a541164dbea6d4f4ed311f4e65cde60caa1c704e531bbf2e63519d1a96163cd3f812c6e5be5b2fd05f72d0177af5fd8ca8637
   languageName: node
   linkType: hard
 

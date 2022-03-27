@@ -7,7 +7,7 @@
       },
       "commandPath": "./commands/DbReset",
       "commandName": "db:reset",
-      "description": "Drop databe and execute seed",
+      "description": "Drop database and execute seed",
       "args": [],
       "aliases": [],
       "flags": []
