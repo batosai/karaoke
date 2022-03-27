@@ -47,6 +47,7 @@
     "@vime/core": "^5.3.1",
     "alpinejs": "^3.9.0",
     "autoprefixer": "^10.4.2",
+    "daisyui": "^2.13.3",
     "flatpickr": "^4.6.9",
     "luxon": "^2.0.2",
     "phc-argon2": "^1.1.2",

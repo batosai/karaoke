@@ -1,4 +1,4 @@
-// import '../css/app.css'
+import '../css/app.css'
 
 // import '@hotwired/turbo'
 // import Alpine from 'alpinejs'
