@@ -58,7 +58,7 @@ Encore.addLoader({
 |
 */
 Encore.addEntry('app', './resources/js/app.js')
-Encore.addEntry('admin', './resources/js/admin.js')
+Encore.addEntry('admin', './resources/js/admin/index.js')
 
 /*
 |--------------------------------------------------------------------------
