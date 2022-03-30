@@ -2736,6 +2736,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vime/svelte@npm:^5.3.1":
+  version: 5.3.1
+  resolution: "@vime/svelte@npm:5.3.1"
+  peerDependencies:
+    "@vime/core": 5.3.1
+    svelte: ^3.0.0
+  checksum: 3bfed1177840b3d11169172c5a8dee5b6aef9218a22e7672f5608764ec3ec70692a73cf7309908084c7329a4d460c02bf60332d22b410e99ef93ecb4536c4ae0
+  languageName: node
+  linkType: hard
+
 "@vue/reactivity@npm:~3.1.1":
   version: 3.1.5
   resolution: "@vue/reactivity@npm:3.1.5"
@@ -7597,6 +7607,7 @@ __metadata:
     "@tailwindcss/forms": ^0.4.0
     "@types/socket.io": ^3.0.2
     "@vime/core": ^5.3.1
+    "@vime/svelte": ^5.3.1
     adonis-preset-ts: ^2.1.0
     alpinejs: ^3.9.0
     autoprefixer: ^10.4.2
@@ -7617,6 +7628,7 @@ __metadata:
     sqlite3: ^5.0.2
     svelte: ^3.46.4
     svelte-loader: ^3.1.2
+    svelte-qrcode: ^1.0.0
     tailwindcss: ^3.0.0
     typescript: ~4.5
     uuid: ^8.3.2
@@ -11580,6 +11592,13 @@ __metadata:
   peerDependencies:
     svelte: ">3.0.0"
   checksum: 586f85d2b682bcffeda82cc94823ce48a9dea25779ab817ee7bc09aa256cf1764e9d9bd24408d9dc4c1b63d0b40c9f54d62022b55075dfdd3c5b5d61718db9bf
+  languageName: node
+  linkType: hard
+
+"svelte-qrcode@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "svelte-qrcode@npm:1.0.0"
+  checksum: cb5987b89d541c722e62a3a5430c1e3ddf981295a27f7b750dc10c0f2e92134d4f2094fe62ad4f8a78d2b1db0ff0c242fe23c42e57149ecba4367b67b8061e99
   languageName: node
   linkType: hard
 

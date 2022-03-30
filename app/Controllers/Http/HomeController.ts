@@ -12,6 +12,7 @@ export default class HomeController {
   }
 
   public async test({ view, inertia }: HttpContextContract) {
-    return inertia.render('Home/Test', { content: 'mon texte demo' });
+    const track = await Track.first()
+    return inertia.render('Home/Test', { track, content: 'mon texte demo' });
   }
 }

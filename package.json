@@ -45,6 +45,7 @@
     "@inertiajs/progress": "^0.2.7",
     "@types/socket.io": "^3.0.2",
     "@vime/core": "^5.3.1",
+    "@vime/svelte": "^5.3.1",
     "alpinejs": "^3.9.0",
     "autoprefixer": "^10.4.2",
     "daisyui": "^2.13.3",
@@ -59,6 +60,7 @@
     "sqlite3": "^5.0.2",
     "svelte": "^3.46.4",
     "svelte-loader": "^3.1.2",
+    "svelte-qrcode": "^1.0.0",
     "uuid": "^8.3.2",
     "ytdl-core": "^4.11.0"
   },
