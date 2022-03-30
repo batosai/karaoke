@@ -87,15 +87,15 @@
   };
 </script>
 
-  <div class="fixed inset-0 w-full h-full flex bg-blue-100 items-center justify-center">
-    <div class="bg-white rounded-lg shadow p-4" x-data="app2()">
+  <div class="fixed inset-0 w-full h-full flex items-center justify-center">
+    <div class="card bg-neutral shadow-xl p-4" x-data="app2()">
       <div class="flex">
       {#if inputs.length}
         {#each inputs as item, i}
           <input
             bind:value={pins[i]}
             maxLength="1"
-            class="h-16 w-12 border mx-2 rounded-lg flex items-center text-center font-thin text-gray-800 text-3xl pin-item"
+            class="input h-16 w-12 mx-2 flex items-center text-center text-white text-3xl pin-item"
             id={`pin${i}`}
             type="tel"
             pattern="\d{1}"

@@ -23,9 +23,14 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'HomeController.index').as('home')
-Route.get('/test', 'HomeController.test').as('test')
-// Route.inertia('/', 'HomeController.index');
 Route.get('/micro', 'MicroController.index').as('micro')
+
+Route.resource('link', 'LinkController')
+  .as('link')
+  .only(['index', 'update'])
+
+Route.get('/display', 'DisplayController.index').as('display')
+Route.get('/device', 'DeviceController.index').as('Device')
 
 Route.resource('media', 'MediaController')
   .as('media')
