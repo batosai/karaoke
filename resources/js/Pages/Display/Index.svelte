@@ -1,6 +1,7 @@
 <script>
+  import { onMount } from 'svelte'
   import { inertia, Link } from '@inertiajs/inertia-svelte'
-  import { onMount } from 'svelte';
+  import QrCode from 'svelte-qrcode'
   import {
 		Player,
 		Video,
@@ -37,7 +38,7 @@
     bind:this={player}
   >
     <Video>
-      <source data-src="/media/{ track.id }" type="video/mp4" />
+      <source data-src="/media/{ track.id }"  type="video/mp4" />
     </Video>
 
     <Ui>
@@ -61,6 +62,10 @@
   </Player>
 
 {:else}
+
+  <div class="fixed bottom-0 bg-white rounded-box m-10 p-5">
+    <QrCode value="https://chaufourier.fr?code=1234" size="150" />
+  </div>
 
   <div class="hero min-h-screen bg-base-200">
     <div class="hero-content text-center">
@@ -91,7 +96,7 @@
             <span style="--value:{ value };"></span>
           </span>
 
-          <!-- <div class="alert alert-warning shadow-lg mx-auto w-64">
+          <!-- <div class="alert alert-info shadow-lg mx-auto w-64">
             En attente des participants...
           </div> -->
         </div>

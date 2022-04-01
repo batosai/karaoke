@@ -31,6 +31,8 @@ Route.resource('link', 'LinkController')
 
 Route.get('/display', 'DisplayController.index').as('display')
 Route.get('/device', 'DeviceController.index').as('Device')
+Route.get('/device/list', 'DeviceController.list').as('Device.list')
+Route.get('/device/micro', 'DeviceController.micro').as('Device.micro')
 
 Route.resource('media', 'MediaController')
   .as('media')
