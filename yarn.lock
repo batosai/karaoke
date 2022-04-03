@@ -4221,6 +4221,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cliui@npm:^7.0.2":
+  version: 7.0.4
+  resolution: "cliui@npm:7.0.4"
+  dependencies:
+    string-width: ^4.2.0
+    strip-ansi: ^6.0.0
+    wrap-ansi: ^7.0.0
+  checksum: ce2e8f578a4813806788ac399b9e866297740eecd4ad1823c27fd344d78b22c5f8597d548adbcc46f0573e43e21e751f39446c5a5e804a12aace402b7a315d7f
+  languageName: node
+  linkType: hard
+
 "clone-deep@npm:^4.0.1":
   version: 4.0.1
   resolution: "clone-deep@npm:4.0.1"
@@ -6278,6 +6289,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-caller-file@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "get-caller-file@npm:2.0.5"
+  checksum: b9769a836d2a98c3ee734a88ba712e62703f1df31b94b784762c433c27a386dd6029ff55c2a920c392e33657d80191edbf18c61487e198844844516f843496b9
+  languageName: node
+  linkType: hard
+
 "get-intrinsic@npm:^1.0.2":
   version: 1.1.1
   resolution: "get-intrinsic@npm:1.1.1"
@@ -7635,6 +7653,7 @@ __metadata:
     prettier: ^2.5.1
     prettier-plugin-tailwindcss: ^0.1.7
     proxy-addr: ^2.0.7
+    random-string-gen: ^1.1.4
     reflect-metadata: ^0.1.13
     socket.io: ^4.4.1
     socket.io-client: ^4.4.1
@@ -10168,6 +10187,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"random-string-gen@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "random-string-gen@npm:1.1.4"
+  dependencies:
+    yargs: ^17.3.1
+  bin:
+    random-string: bin/index.js
+    random-string-gen: bin/index.js
+    random-string-generator: bin/index.js
+    randomstring: bin/index.js
+  checksum: 27926fed6295f02612063b7dace2e5679ef4ea36676ff0adb68db73cd660bd2281f1dd13b8c4f30a804992805b5f570f67218802607275b28280d90a97b978eb
+  languageName: node
+  linkType: hard
+
 "randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
@@ -10438,6 +10471,13 @@ __metadata:
   version: 3.0.0
   resolution: "require-all@npm:3.0.0"
   checksum: f2d652d6bca4201bda1ff2f7d4f46a3edd136cc6fd81d38caff50eaa4669ae7ae459f32a06b0892e754bf0f7aae21fbe69172409dff1abd78be5c12cab750a01
+  languageName: node
+  linkType: hard
+
+"require-directory@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "require-directory@npm:2.1.1"
+  checksum: fb47e70bf0001fdeabdc0429d431863e9475e7e43ea5f94ad86503d918423c1543361cc5166d713eaa7029dd7a3d34775af04764bebff99ef413111a5af18c80
   languageName: node
   linkType: hard
 
@@ -12519,6 +12559,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"wrap-ansi@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "wrap-ansi@npm:7.0.0"
+  dependencies:
+    ansi-styles: ^4.0.0
+    string-width: ^4.1.0
+    strip-ansi: ^6.0.0
+  checksum: a790b846fd4505de962ba728a21aaeda189b8ee1c7568ca5e817d85930e06ef8d1689d49dbf0e881e8ef84436af3a88bc49115c2e2788d841ff1b8b5b51a608b
+  languageName: node
+  linkType: hard
+
 "wrappy@npm:1":
   version: 1.0.2
   resolution: "wrappy@npm:1.0.2"
@@ -12570,6 +12621,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"y18n@npm:^5.0.5":
+  version: 5.0.8
+  resolution: "y18n@npm:5.0.8"
+  checksum: 54f0fb95621ee60898a38c572c515659e51cc9d9f787fb109cef6fde4befbe1c4602dc999d30110feee37456ad0f1660fa2edcfde6a9a740f86a290999550d30
+  languageName: node
+  linkType: hard
+
 "yallist@npm:^2.1.2":
   version: 2.1.2
   resolution: "yallist@npm:2.1.2"
@@ -12609,6 +12667,28 @@ __metadata:
   version: 20.2.9
   resolution: "yargs-parser@npm:20.2.9"
   checksum: 8bb69015f2b0ff9e17b2c8e6bfe224ab463dd00ca211eece72a4cd8a906224d2703fb8a326d36fdd0e68701e201b2a60ed7cf81ce0fd9b3799f9fe7745977ae3
+  languageName: node
+  linkType: hard
+
+"yargs-parser@npm:^21.0.0":
+  version: 21.0.1
+  resolution: "yargs-parser@npm:21.0.1"
+  checksum: c3ea2ed12cad0377ce3096b3f138df8267edf7b1aa7d710cd502fe16af417bafe4443dd71b28158c22fcd1be5dfd0e86319597e47badf42ff83815485887323a
+  languageName: node
+  linkType: hard
+
+"yargs@npm:^17.3.1":
+  version: 17.4.0
+  resolution: "yargs@npm:17.4.0"
+  dependencies:
+    cliui: ^7.0.2
+    escalade: ^3.1.1
+    get-caller-file: ^2.0.5
+    require-directory: ^2.1.1
+    string-width: ^4.2.3
+    y18n: ^5.0.5
+    yargs-parser: ^21.0.0
+  checksum: 63985bddddf1fb6b9c98744591e8b70f99839591521cb84eea60903d52ec0da35ab46c42c325d151f3ab5c41935f976c10da096b5a7067c217714a91c0bd4be3
   languageName: node
   linkType: hard
 

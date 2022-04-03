@@ -1,4 +1,8 @@
+import Route from '@ioc:Adonis/Core/Route'
+import Env from '@ioc:Adonis/Core/Env'
+import generatePin from 'random-string-gen'
 import Ws from '../app/Services/Ws'
+
 Ws.boot()
 
 interface Display {
@@ -12,12 +16,36 @@ let display: Display = {
   candidate: {},
 }
 
+let displays: object = {}
+
 /**
  * Listen for incoming socket connections
  */
 Ws.io.on('connection', socket => {
   activeSockets.push(socket.id)
   // console.log(activeSockets)
+
+  const pin = generatePin({ length: 4, capitalization: 'uppercase' })
+  const uri = Env.get('APP_URL') + Route.makeUrl('link.index')
+  const fullUri = Env.get('APP_URL') + Route.makeUrl('link.index', {
+    qs: {
+      pin,
+    }
+  })
+
+  displays[pin] = {
+    pin,
+    uri,
+    fullUri,
+    id: socket.id,
+    players: []
+  }
+
+  socket.emit('new:display', {
+    pin,
+    uri,
+    fullUri
+  })
 
   ///////
   socket.on('i-am-display', data => {

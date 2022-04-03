@@ -24,8 +24,12 @@ import '../css/app.css'
 
 import { createInertiaApp } from '@inertiajs/inertia-svelte'
 import { InertiaProgress } from '@inertiajs/progress'
+import { io } from 'socket.io-client'
+import { socket } from './stores'
 
 InertiaProgress.init()
+
+socket.set(io())
 
 createInertiaApp({
   resolve: name => require(`./Pages/${name}.svelte`),
