@@ -10,15 +10,15 @@
     usePlayerStore
 	} from '@vime/svelte'
 
-  export let track
-
   let player
   let value = 5
 
   let interval = setInterval(() => {
     value--
     if (value === 0) clearInterval(interval)
-  }, 1000);
+  }, 1000)
+
+  export let track
 
   // onMount(async () => {
 	// 	await import('@vime/core/dist/vime/vime.esm.js')
@@ -29,6 +29,10 @@
   // $autoplay = true
   // $: console.log($paused)
 </script>
+
+<div class="fixed top-10 right-10 bg-white rounded-box p-5 z-50">
+  <QrCode value="https://chaufourier.fr?code=1234" size="150" />
+</div>
 
 {#if value === 0}
   <Player
@@ -62,10 +66,6 @@
   </Player>
 
 {:else}
-
-  <div class="fixed bottom-0 bg-white rounded-box m-10 p-5">
-    <QrCode value="https://chaufourier.fr?code=1234" size="150" />
-  </div>
 
   <div class="hero min-h-screen bg-base-200">
     <div class="hero-content text-center">
