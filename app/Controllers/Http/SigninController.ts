@@ -8,8 +8,10 @@ export default class SigninController {
   /**
    * Show form to login
    */
-  public async create({ view }: HttpContextContract) {
-    return view.render('auth/signin')
+  public async create({ view, request }: HttpContextContract) {
+    return view.render('auth/signin', {
+      redirectTo: request.input('redirect_to', '/admin')
+    })
   }
 
   /**
@@ -40,17 +42,19 @@ export default class SigninController {
       return response.redirect('/signin')
     }
 
+    console.log(request.input('redirect_to', '/admin'))
+
     /**
      * Redirect to the home page
      */
-    response.redirect('/admin')
+    response.redirect(request.input('redirect_to', '/admin'))
   }
 
   /**
    * Destroy user session (aka logout)
    */
-  public async destroy({ auth, response }: HttpContextContract) {
+  public async destroy({ auth, request, response }: HttpContextContract) {
     await auth.logout()
-    response.redirect('/admin')
+    response.redirect(request.input('redirect_to', '/admin'))
   }
 }

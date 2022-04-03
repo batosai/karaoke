@@ -25,9 +25,19 @@ export default class AuthMiddleware {
    * during the current request.
    */
   protected async authenticate(
+    request: HttpContextContract['request'],
     auth: HttpContextContract['auth'],
     guards: (keyof GuardsList)[],
   ) {
+
+    if (request.url()) {
+      this.redirectTo = Route.makeUrl('auth.signin', {
+        qs: {
+          redirect_to: request.url(),
+        }
+      })
+    }
+
     /**
      * Hold reference to the guard last attempted within the for loop. We pass
      * the reference of the guard to the "AuthenticationException", so that
@@ -65,7 +75,7 @@ export default class AuthMiddleware {
    * Handle request
    */
   public async handle(
-    { auth }: HttpContextContract,
+    { auth, request }: HttpContextContract,
     next: () => Promise<void>,
     customGuards: (keyof GuardsList)[],
   ) {
@@ -74,7 +84,7 @@ export default class AuthMiddleware {
      * the config file
      */
     const guards = customGuards.length ? customGuards : [auth.name]
-    await this.authenticate(auth, guards)
+    await this.authenticate(request, auth, guards)
     await next()
   }
 }
