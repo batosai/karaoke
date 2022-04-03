@@ -95,7 +95,7 @@
           <input
             bind:value={pins[i]}
             maxLength="1"
-            class="input h-16 w-12 mx-2 flex items-center text-center text-white text-3xl pin-item"
+            class="input h-16 w-12 mx-2 flex items-center text-center text-3xl pin-item bg-gray-200"
             id={`pin${i}`}
             type="tel"
             pattern="\d{1}"
