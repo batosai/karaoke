@@ -25,9 +25,10 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', 'HomeController.index').as('home')
 Route.get('/micro', 'MicroController.index').as('micro')
 
-Route.resource('link', 'LinkController')
+Route.resource('/link', 'LinkController')
   .as('link')
   .only(['index', 'update'])
+  .middleware({ '*': ['auth'] })
 
 Route.get('/display', 'DisplayController.index').as('display')
 Route.get('/device', 'DeviceController.index').as('Device')
