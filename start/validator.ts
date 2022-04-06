@@ -7,7 +7,9 @@
 | boot.
 |
 */
+import { DateTime } from 'luxon'
 import { validator } from '@ioc:Adonis/Core/Validator'
+import DisplayConnexion from 'App/Models/DisplayConnexion'
 
 // The string must contain at least 1 lowercase alphabetical character
 validator.rule('oneLowerCaseAtLeast', (value, _, options) => {
@@ -60,3 +62,34 @@ validator.rule('oneSpecialCharacterAtLeast', (value, _, options) => {
     )
   }
 })
+
+// The string is present in DisplayConnexion and not expired
+validator.rule(
+  'existAndNotExpired',
+  async (value, _, options) => {
+
+    const now: DateTime = DateTime.now()
+    const dc: DisplayConnexion | null = await DisplayConnexion.find(value)
+
+    if (dc) {
+      const dateDiff: any = now.diff(dc!.createdAt, ['minutes']).toObject()
+
+      if (dateDiff.minutes <= 15) {
+        return
+      }
+    }
+
+    options.errorReporter.report(
+      options.pointer,
+      'existAndNotExpired',
+      'Pin expired or not exist',
+      options.arrayExpressionPointer,
+    )
+  },
+  () => {
+    return {
+      async: true,
+      compiledOptions: {},
+    }
+  },
+)
