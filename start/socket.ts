@@ -2,6 +2,7 @@ import Route from '@ioc:Adonis/Core/Route'
 import Env from '@ioc:Adonis/Core/Env'
 import generatePin from 'random-string-gen'
 import Ws from '../app/Services/Ws'
+import DisplayConnexion from 'App/Models/DisplayConnexion'
 
 Ws.boot()
 
@@ -25,27 +26,36 @@ Ws.io.on('connection', socket => {
   activeSockets.push(socket.id)
   // console.log(activeSockets)
 
-  const pin = generatePin({ length: 4, capitalization: 'uppercase' })
-  const uri = Env.get('APP_URL') + Route.makeUrl('link.index')
-  const fullUri = Env.get('APP_URL') + Route.makeUrl('link.index', {
-    qs: {
+  socket.on('display:new', async () => {
+    const pin = generatePin({ length: 4, capitalization: 'uppercase' })
+    const uri = Env.get('APP_URL') + Route.makeUrl('link.index')
+    const fullUri = Env.get('APP_URL') + Route.makeUrl('link.index', {
+      qs: {
+        pin,
+      }
+    })
+
+    displays[pin] = {
       pin,
+      uri,
+      fullUri,
+      id: socket.id,
+      players: []
     }
+
+    await DisplayConnexion.create({
+      pin,
+      socketId: socket.id
+    })
+
+    socket.emit('display:store', {
+      pin,
+      uri,
+      fullUri
+    })
   })
 
-  displays[pin] = {
-    pin,
-    uri,
-    fullUri,
-    id: socket.id,
-    players: []
-  }
 
-  socket.emit('new:display', {
-    pin,
-    uri,
-    fullUri
-  })
 
   ///////
   socket.on('i-am-display', data => {
@@ -74,12 +84,14 @@ Ws.io.on('connection', socket => {
     })
   })
 
-  socket.on('disconnect', () => {
+  socket.on('disconnect', async () => {
     activeSockets = activeSockets.filter(
       existingSocket => existingSocket !== socket.id,
     )
     socket.broadcast.emit('remove-user', {
       socketId: socket.id,
     })
+
+    await DisplayConnexion.query().where('socketId', socket.id).delete()
   })
 })

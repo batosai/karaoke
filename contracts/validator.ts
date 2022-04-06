@@ -5,5 +5,6 @@ declare module '@ioc:Adonis/Core/Validator' {
     oneUpperCaseAtLeast(): Rule
     oneSpecialCharacterAtLeast(): Rule
     freeEventOrNotExist(): Rule
+    existAndNotExpired(): Rule
   }
 }

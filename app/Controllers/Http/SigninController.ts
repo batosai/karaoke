@@ -42,8 +42,6 @@ export default class SigninController {
       return response.redirect('/signin')
     }
 
-    console.log(request.input('redirect_to', '/admin'))
-
     /**
      * Redirect to the home page
      */

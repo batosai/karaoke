@@ -27,13 +27,17 @@ Route.get('/micro', 'MicroController.index').as('micro')
 
 Route.resource('/link', 'LinkController')
   .as('link')
-  .only(['index', 'update'])
+  .only(['index', 'store'])
   .middleware({ '*': ['auth'] })
 
-Route.get('/display', 'DisplayController.index').as('display')
-Route.get('/device', 'DeviceController.index').as('Device')
-Route.get('/device/list', 'DeviceController.list').as('Device.list')
-Route.get('/device/micro', 'DeviceController.micro').as('Device.micro')
+Route.resource('/display', 'DisplayController')
+  .as('display')
+  .only(['index', 'store'])
+  .middleware({ 'index': ['auth'] })
+
+Route.get('/device', 'DeviceController.index').as('device')
+Route.get('/device/list', 'DeviceController.list').as('device.list')
+Route.get('/device/micro', 'DeviceController.micro').as('device.micro')
 
 Route.resource('media', 'MediaController')
   .as('media')

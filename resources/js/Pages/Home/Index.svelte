@@ -1,4 +1,6 @@
 <script>
+  import { Inertia } from '@inertiajs/inertia'
+  import { page } from '@inertiajs/inertia-svelte'
   import QrCode from 'svelte-qrcode'
   import PinInput from '../../components/Pin'
   import { socket } from '../../stores'
@@ -6,9 +8,17 @@
   let value
   let payload = null
 
-  $socket.on('connect', async () => {
-    $socket.on('new:display', async data => {
+  $socket.on('connect', () => {
+    $socket.emit('display:new')
+    $socket.on('display:store', async data => {
       payload = data
+    })
+
+    $socket.on('display:login', () => {
+      Inertia.post('/display', {
+        pin: payload.pin,
+        _token: $page.props.csrfToken
+      })
     })
   })
 </script>

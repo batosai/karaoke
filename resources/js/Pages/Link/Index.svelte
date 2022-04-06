@@ -1,10 +1,33 @@
 <script>
+  import { Inertia } from '@inertiajs/inertia'
+  import { page } from '@inertiajs/inertia-svelte'
   import PinInput from '../../components/Pin'
 
-  let value
+  export let pin
+  let code
+
+  if (pin) {
+    submit(pin)
+  }
+
+  function submit(pin) {
+    Inertia.post('/link', {
+      pin,
+      _token: $page.props.csrfToken
+    })
+  }
 </script>
 
-
 <section>
-  <PinInput size={4} bind:pin={value} />
+  <div class="fixed inset-0 w-full h-full flex items-center justify-center">
+    <PinInput size={4} bind:pin={code} submit={submit} />
+  </div>
 </section>
+
+{#if $page.props.errors}
+  <div class="absolute bottom-0 p-10 w-full">
+    <div class="alert alert-error shadow-lg justify-center">
+      <span>{ $page.props.errors.pin }</span>
+    </div>
+  </div>
+{/if}

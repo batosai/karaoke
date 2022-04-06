@@ -13,6 +13,8 @@
     "password_confirmation.confirmed": "Le mot de passe et le mot de passe de confirmation ne correspondent pas.",
     "password_confirmation.minLength": "Le mot de passe doit comporter au moins { password_min_length } caractères",
 
-    "title.required": "Entrer un titre"
+    "title.required": "Entrer un titre",
+
+    "pin.existAndNotExpired": "Code incorrecte"
   }
 }
