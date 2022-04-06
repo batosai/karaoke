@@ -13,5 +13,8 @@ import Inertia from '@ioc:EidelLev/Inertia'
 Inertia.share({
   errors: (ctx) => {
     return ctx.session.flashMessages.get('errors')
-  }
+  },
+  csrfToken: (ctx) => {
+    return ctx.request.csrfToken
+  },
 }).version(() => Inertia.manifestFile('public/assets/manifest.json'))
