@@ -14,7 +14,7 @@ export default class AuthMiddleware {
   /**
    * The URL to redirect to when request is Unauthorized
    */
-  protected redirectTo = Route.makeUrl('auth.signin')
+  protected redirectTo = Route.builder().make('auth.signin')
 
   /**
    * Authenticates the current HTTP request against a custom set of defined
@@ -31,11 +31,11 @@ export default class AuthMiddleware {
   ) {
 
     if (request.url()) {
-      this.redirectTo = Route.makeUrl('auth.signin', {
+      this.redirectTo = Route.builder().qs({
         qs: {
           redirect_to: request.url(),
         }
-      })
+      }).make('auth.signin')
     }
 
     /**

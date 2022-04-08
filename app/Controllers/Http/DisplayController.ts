@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import DisplayConnexion from 'App/Models/DisplayConnexion'
+import Room from 'App/Models/Room'
 import PinValidator from 'App/Validators/PinValidator'
 import Track from 'App/Models/Track'
 
@@ -12,10 +12,10 @@ export default class DisplayController {
   public async store({ request, response, auth }: HttpContextContract) {
     const payload = await request.validate(PinValidator)
 
-    const dc = await DisplayConnexion.findOrFail(payload.pin)
+    const room = await Room.findOrFail(payload.pin)
 
-    if (dc.userId) {
-      await auth.loginViaId(dc.userId)
+    if (room.userId) {
+      await auth.loginViaId(room.userId)
     }
 
     response.redirect().toRoute('display.index')

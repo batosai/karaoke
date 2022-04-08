@@ -2,6 +2,7 @@
   import { Inertia } from '@inertiajs/inertia'
   import { page } from '@inertiajs/inertia-svelte'
   import PinInput from '../../components/Pin'
+  import { pin as pinStore } from '../../stores'
 
   export let pin
   let code
@@ -11,6 +12,7 @@
   }
 
   function submit(pin) {
+    pinStore.set(pin)
     Inertia.post('/link', {
       pin,
       _token: $page.props.csrfToken

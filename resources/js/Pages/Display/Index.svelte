@@ -9,14 +9,23 @@
     ClickToPlay,
     usePlayerStore
 	} from '@vime/svelte'
+  import { socket, pin, players } from '../../stores'
 
   let player
   let value = 5
 
-  let interval = setInterval(() => {
-    value--
-    if (value === 0) clearInterval(interval)
-  }, 1000)
+  $socket.on('player:create', player => {
+    players.set([ ...$players, player ])
+  })
+
+  $socket.on('player:delete', data => {
+    players.set(data)
+  })
+
+  // let interval = setInterval(() => {
+  //   value--
+  //   if (value === 0) clearInterval(interval)
+  // }, 1000)
 
   export let track
 
@@ -32,6 +41,7 @@
 
 <div class="fixed top-10 right-10 bg-white rounded-box p-5 z-50">
   <QrCode value="https://chaufourier.fr?code=1234" size="150" />
+  <p>{ $pin }</p>
 </div>
 
 {#if value === 0}
@@ -73,21 +83,23 @@
       <div>
   <!-- TODO grid-cols-none grid-cols-2 grid-cols-3 grid-cols-4 : 4 max  -->
         <div class="grid grid-cols-2 gap-6 text-center">
-          <div>
-            <div class="avatar online">
-              <div class="w-48 rounded-full">
-                <img src="https://api.lorem.space/image/face?hash=28212" alt="" />
+          {#each $players as p}
+            <div>
+              <div class="avatar offline">
+                <div class="w-48 rounded-full">
+                  <img src="{ p.avatar }" alt="" />
+                </div>
               </div>
             </div>
-          </div>
+          {/each}
 
-          <div>
+          <!-- <div>
             <div class="avatar offline">
               <div class="w-48 rounded-full">
                 <img src="https://api.lorem.space/image/face?hash=40361" alt="" />
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
 

@@ -9,7 +9,7 @@
 */
 import { DateTime } from 'luxon'
 import { validator } from '@ioc:Adonis/Core/Validator'
-import DisplayConnexion from 'App/Models/DisplayConnexion'
+import Room from 'App/Models/Room'
 
 // The string must contain at least 1 lowercase alphabetical character
 validator.rule('oneLowerCaseAtLeast', (value, _, options) => {
@@ -63,16 +63,16 @@ validator.rule('oneSpecialCharacterAtLeast', (value, _, options) => {
   }
 })
 
-// The string is present in DisplayConnexion and not expired
+// The string is present in Room and not expired
 validator.rule(
   'existAndNotExpired',
   async (value, _, options) => {
 
     const now: DateTime = DateTime.now()
-    const dc: DisplayConnexion | null = await DisplayConnexion.find(value)
+    const room: Room | null = await Room.find(value)
 
-    if (dc) {
-      const dateDiff: any = now.diff(dc!.createdAt, ['minutes']).toObject()
+    if (room) {
+      const dateDiff: any = now.diff(room!.createdAt, ['minutes']).toObject()
 
       if (dateDiff.minutes <= 15) {
         return

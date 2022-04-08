@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import DisplayConnexion from 'App/Models/DisplayConnexion'
+import Room from 'App/Models/Room'
 import PinValidator from 'App/Validators/PinValidator'
 import Ws from 'App/Services/Ws'
 
@@ -14,12 +14,12 @@ export default class LinkController {
   public async store({ request, response, auth }: HttpContextContract) {
     const payload = await request.validate(PinValidator)
 
-    const dc = await DisplayConnexion.findOrFail(payload.pin)
+    const room = await Room.findOrFail(payload.pin)
 
-    dc.userId = auth.user!.id
-    dc.save()
+    room.userId = auth.user!.id
+    room.save()
 
-    Ws.io.to(dc.socketId).emit('display:login')
+    Ws.io.to(room.socketId).emit('room:login')
 
     response.redirect().toRoute('device')
   }

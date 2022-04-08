@@ -1,24 +1,31 @@
 <script>
+  import { Inertia } from '@inertiajs/inertia'
+  import { socket, pin, player } from '../../stores'
+
   let files
   let preview
 
+  if ($pin === null) {
+    Inertia.get('/link')
+  }
+
   $: if (files) {
-		// Note that `files` is of type `FileList`, not an Array:
-		// https://developer.mozilla.org/en-US/docs/Web/API/FileList
-		console.log(files);
-
-		for (const file of files) {
-			console.log(`${file.name}: ${file.size} bytes`);
-		}
-
     if (files[0]) {
       const fileReader = new FileReader()
       fileReader.readAsDataURL(files[0])
       fileReader.addEventListener('load', ({ target }) => {
         preview = target.result
+        $player.avatar = target.result
       })
     }
 	}
+
+  function next() {
+    $socket.emit('player:store', {
+      pin: $pin,
+      data: $player
+    })
+  }
 
 </script>
 
@@ -43,9 +50,17 @@
         </div>
       </div>
 
-      <input type="text" placeholder="Votre nom" class="input w-full max-w-xs">
+      <input
+        type="text"
+        placeholder="Votre nom"
+        class="input w-full max-w-xs"
+        bind:value={$player.name} />
 
-      <button class="btn btn-wide w-full max-w-xs mt-10">Suivant</button>
+      <button
+        on:click={next}
+        class="btn btn-wide w-full max-w-xs mt-10">
+        Suivant
+      </button>
     </div>
   </div>
 </div>

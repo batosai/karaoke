@@ -3,18 +3,19 @@
   import { page } from '@inertiajs/inertia-svelte'
   import QrCode from 'svelte-qrcode'
   import PinInput from '../../components/Pin'
-  import { socket } from '../../stores'
+  import { socket, pin } from '../../stores'
 
   let value
   let payload = null
 
   $socket.on('connect', () => {
-    $socket.emit('display:new')
-    $socket.on('display:store', async data => {
+    $socket.emit('room:create')
+    $socket.on('room:store', async data => {
       payload = data
+      pin.set(data.pin)
     })
 
-    $socket.on('display:login', () => {
+    $socket.on('room:login', () => {
       Inertia.post('/display', {
         pin: payload.pin,
         _token: $page.props.csrfToken
