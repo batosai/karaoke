@@ -3,6 +3,7 @@ import { BaseModel, column, beforeCreate } from '@ioc:Adonis/Lucid/Orm'
 import Route from '@ioc:Adonis/Core/Route'
 import Env from '@ioc:Adonis/Core/Env'
 import generatePin from 'random-string-gen'
+import Player from './Player'
 
 export default class Room extends BaseModel {
   public static selfAssignPrimaryKey = true
@@ -29,7 +30,7 @@ export default class Room extends BaseModel {
 
   /////////////////////////
 
-  public players: [] = []
+  public players: Map<string, Player> = new Map()
 
   get uri(): string {
     return Env.get('APP_URL') + Route.builder().make('link.index')

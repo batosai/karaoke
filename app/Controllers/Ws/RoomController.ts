@@ -8,7 +8,7 @@ export default class RoomController {
     const room = await Room.create({
       socketId: socket.id
     })
-    Ws.rooms[room.pin] = room
+    Ws.rooms.set(room.pin, room)
 
     socket.emit('room:store', {
       pin: room.pin,
@@ -18,7 +18,10 @@ export default class RoomController {
   }
 
   public async delete(socket: Socket) {
-    await Room.query().where('socketId', socket.id).delete()
+    const room = await Room.findByOrFail('socket_id', socket.id)
+
+    Ws.rooms.delete(room.pin)
+    room.delete()
   }
 
 }

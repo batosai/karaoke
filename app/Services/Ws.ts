@@ -2,12 +2,13 @@ import { join } from 'path'
 import { Server } from 'socket.io'
 import AdonisServer from '@ioc:Adonis/Core/Server'
 import { requireAll } from '@ioc:Adonis/Core/Helpers'
+import Room from 'App/Models/Room'
 
 const controllersTree = requireAll(join(__dirname, '../', 'Controllers', 'Ws'))
 
 class Ws {
   public io: Server
-  public rooms: object = {}
+  public rooms: Map<string, Room> = new Map()
   private booted = false
 
   public boot() {
