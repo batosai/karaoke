@@ -1,6 +1,7 @@
 <script>
   import { Inertia } from '@inertiajs/inertia'
   import { page } from '@inertiajs/inertia-svelte'
+  import { stardust } from '@eidellev/adonis-stardust'
   import PinInput from '../../components/Pin'
   import { pin as pinStore } from '../../stores'
 
@@ -13,7 +14,7 @@
 
   function submit(pin) {
     pinStore.set(pin)
-    Inertia.post('/link', {
+    Inertia.post(stardust.route('link.store'), {
       pin,
       _token: $page.props.csrfToken
     })

@@ -38,6 +38,7 @@
     "@adonisjs/shield": "^7.0.7",
     "@adonisjs/view": "^6.1.1",
     "@alpinejs/focus": "^3.9.0",
+    "@eidellev/adonis-stardust": "^2.2.0",
     "@eidellev/inertia-adonisjs": "6.0.0",
     "@hotwired/turbo": "^7.1.0",
     "@inertiajs/inertia": "latest",

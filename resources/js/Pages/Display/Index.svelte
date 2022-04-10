@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte'
   import { inertia, Link } from '@inertiajs/inertia-svelte'
+  import { stardust } from '@eidellev/adonis-stardust'
   import QrCode from 'svelte-qrcode'
   import {
 		Player,
@@ -52,7 +53,7 @@
     bind:this={player}
   >
     <Video>
-      <source data-src="/media/{ track.id }"  type="video/mp4" />
+      <source data-src="{ stardust.route('media.show', { id: track.id }) }"  type="video/mp4" />
     </Video>
 
     <Ui>

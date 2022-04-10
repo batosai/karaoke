@@ -45,7 +45,8 @@
     "@adonisjs/mail",
     "@adonisjs/lucid-slugify",
     "@adonisjs/i18n",
-    "@eidellev/inertia-adonisjs"
+    "@eidellev/inertia-adonisjs",
+    "@eidellev/adonis-stardust"
   ],
   "metaFiles": [
     {

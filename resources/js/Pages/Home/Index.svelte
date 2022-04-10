@@ -1,6 +1,7 @@
 <script>
   import { Inertia } from '@inertiajs/inertia'
   import { page } from '@inertiajs/inertia-svelte'
+  import { stardust } from '@eidellev/adonis-stardust'
   import QrCode from 'svelte-qrcode'
   import PinInput from '../../components/Pin'
   import { socket, pin } from '../../stores'
@@ -16,7 +17,7 @@
     })
 
     $socket.on('room:login', () => {
-      Inertia.post('/display', {
+      Inertia.post(stardust.route('display.store'), {
         pin: payload.pin,
         _token: $page.props.csrfToken
       })

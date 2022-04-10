@@ -1769,6 +1769,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eidellev/adonis-stardust@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@eidellev/adonis-stardust@npm:2.2.0"
+  dependencies:
+    "@poppinss/matchit": ^3.1.2
+  peerDependencies:
+    "@adonisjs/core": ">=5"
+  checksum: 417c19aa77711a0dd5a5b001773632b8ed0c90b09445959b590ea45f3a48a218106deeeb8d19f0fd4748b5d5c80a5838fe4583ae16e331ab7e8cae4257123dff
+  languageName: node
+  linkType: hard
+
 "@eidellev/inertia-adonisjs@npm:6.0.0":
   version: 6.0.0
   resolution: "@eidellev/inertia-adonisjs@npm:6.0.0"
@@ -7629,6 +7640,7 @@ __metadata:
     "@adonisjs/view": ^6.1.1
     "@alpinejs/focus": ^3.9.0
     "@babel/plugin-transform-runtime": ^7.17.0
+    "@eidellev/adonis-stardust": ^2.2.0
     "@eidellev/inertia-adonisjs": 6.0.0
     "@hotwired/turbo": ^7.1.0
     "@inertiajs/inertia": latest
