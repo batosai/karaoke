@@ -5,6 +5,7 @@ Ws.boot()
 Ws.on('room:create', 'RoomController.create')
 Ws.on('disconnect', 'RoomController.delete')
 Ws.on('player:store', 'PlayerController.store')
+Ws.on('player:update', 'PlayerController.update')
 Ws.on('disconnect', 'PlayerController.delete')
 
 

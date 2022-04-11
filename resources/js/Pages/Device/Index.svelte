@@ -26,6 +26,8 @@
       pin: $pin,
       data: $player
     })
+
+    Inertia.get(stardust.route('device.list'))
   }
 
 </script>

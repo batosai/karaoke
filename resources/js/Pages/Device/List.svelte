@@ -1,13 +1,32 @@
 <script>
+  import { Inertia } from '@inertiajs/inertia'
+  import { stardust } from '@eidellev/adonis-stardust'
+  import { socket, pin, player } from '../../stores'
+
   export let tracks
 
   let modal
   let track = { title: '' }
 
-  function confirm(t) {
+  if ($pin === null) {
+    Inertia.get(stardust.route('link.index'))
+  }
+
+  function toggleModal(t) {
     track = t
     // TODO add in store
     modal.classList.toggle('modal-open')
+  }
+
+  function next() {
+
+    $player.track = track.id
+    $socket.emit('player:update', {
+      pin: $pin,
+      data: $player
+    })
+
+    Inertia.get(stardust.route('device.micro'))
   }
 </script>
 
@@ -30,7 +49,7 @@
         <div class="flex gap-4 p-4">
           <button
             class="btn btn-ghost w-full justify-start text-left"
-            on:click={confirm(track)}
+            on:click={toggleModal(track)}
           >
             {track.title}
           </button>
@@ -45,8 +64,8 @@
     <h3 class="text-lg font-bold">Confirm!</h3>
     <p class="py-4">{track.title}</p>
     <div class="modal-action">
-      <button class="btn" on:click={confirm}>Cancel</button>
-      <button class="btn">Choose</button>
+      <button class="btn" on:click={toggleModal}>Cancel</button>
+      <button class="btn" on:click={next}>Choose</button>
     </div>
   </div>
 </div>

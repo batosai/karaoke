@@ -1,4 +1,11 @@
 <script>
+  import { Inertia } from '@inertiajs/inertia'
+  import { stardust } from '@eidellev/adonis-stardust'
+  import { pin } from '../../stores'
+
+  if ($pin === null) {
+    Inertia.get(stardust.route('link.index'))
+  }
 
 </script>
 

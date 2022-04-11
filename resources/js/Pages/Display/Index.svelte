@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte'
-  import { inertia, Link } from '@inertiajs/inertia-svelte'
+  import { Inertia } from '@inertiajs/inertia'
+  import { Link } from '@inertiajs/inertia-svelte'
   import { stardust } from '@eidellev/adonis-stardust'
   import QrCode from 'svelte-qrcode'
   import {
@@ -15,8 +16,16 @@
   let player
   let value = 5
 
-  $socket.on('player:create', player => {
-    players.set([ ...$players, player ])
+  if ($pin === null) {
+    Inertia.get(stardust.route('home'))
+  }
+
+  $socket.on('player:stored', data => {
+    players.set(data)
+  })
+
+  $socket.on('player:updated', data => {
+    players.set(data)
   })
 
   $socket.on('player:delete', data => {
@@ -82,26 +91,16 @@
     <div class="hero-content text-center">
 
       <div>
-  <!-- TODO grid-cols-none grid-cols-2 grid-cols-3 grid-cols-4 : 4 max  -->
-        <div class="grid grid-cols-2 gap-6 text-center">
+        <div class="grid grid-cols-{ $players.length < 5 ? $players.length : 4 } gap-6 text-center">
           {#each $players as p}
             <div>
-              <div class="avatar offline">
+              <div class="avatar { p.track ? 'online' : 'offline' }">
                 <div class="w-48 rounded-full">
                   <img src="{ p.avatar }" alt="" />
                 </div>
               </div>
             </div>
           {/each}
-
-          <!-- <div>
-            <div class="avatar offline">
-              <div class="w-48 rounded-full">
-                <img src="https://api.lorem.space/image/face?hash=40361" alt="" />
-              </div>
-            </div>
-          </div> -->
-
         </div>
 
         <div class="absolute left-0 right-0 bottom-10">

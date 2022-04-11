@@ -13,7 +13,27 @@ export default class PlayerController {
 
       const room = Ws.rooms.get(pin)
       room!.players.set(player.socketId, player)
-      socket.to(room!.socketId).emit('player:create', player)
+      socket.to(room!.socketId).emit(
+        'player:stored',
+        Array.from(room!.players.values())
+      )
+    }
+  }
+
+  public async update(socket: Socket, { pin, data }: any) {
+    if (Ws.rooms.has(pin)) {
+
+      const room = Ws.rooms.get(pin)
+      const player = room!.players.get(socket.id)
+      if (player) {
+        player.track = data.track
+
+        room!.players.set(player.socketId, player)
+        socket.to(room!.socketId).emit(
+          'player:updated',
+          Array.from(room!.players.values())
+        )
+      }
 
     }
   }
