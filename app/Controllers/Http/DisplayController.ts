@@ -4,9 +4,8 @@ import PinValidator from 'App/Validators/PinValidator'
 import Track from 'App/Models/Track'
 
 export default class DisplayController {
-  public async index({ inertia, request, response, auth }: HttpContextContract) {
-      const track = await Track.first()
-      return inertia.render('Display/Index', { track })
+  public async index({ inertia }: HttpContextContract) {
+      return inertia.render('Display/Index')
   }
 
   public async store({ request, response, auth }: HttpContextContract) {
