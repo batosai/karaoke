@@ -11,19 +11,19 @@
     ClickToPlay,
     usePlayerStore
 	} from '@vime/svelte'
-  import { socket, pin, players, tracks } from '../../stores'
+  import { socket, pin, players, tracks, player } from '../../stores'
 
-  let player
-  const { paused, playbackEnded } = usePlayerStore(() => player)
+  const initialeState = {
+    player: null,
+    count: 2,
+    played: false,
+    trackUrl: null,
+    currentTrack: 0,
+    interval: null,
+  }
 
-  const initialCount = 5
-  let count = initialCount
-  let letsGo = false
-  let trackUrl = null
-  let currentTrack = 0
-
-  let interval
-  let prevTrackLength = $tracks.length
+  let state = { ...initialeState }
+  const { paused, playbackEnded } = usePlayerStore(() => state.player)
 
   if ($pin === null) {
     Inertia.get(stardust.route('home'))
@@ -35,36 +35,47 @@
 
   $socket.on('player:updated', data => {
     players.set(data)
+
+    if ($tracks.length && $tracks.length === $players.length) {
+      timer()
+    }
   })
 
   $socket.on('player:delete', data => {
     players.set(data)
+
+    if ($players.length === 0) {
+      clearInterval(state.interval)
+      paused.set(true)
+      state = { ...initialeState }
+    }
   })
 
-  $: if ($tracks.length && $tracks.length === $players.length && prevTrackLength !== $tracks.length) {
-    trackUrl = stardust.route('media.show', { id: $tracks[currentTrack] })
-    prevTrackLength = $tracks.length
-    interval = setInterval(() => {
-      count--
-      if (count === 0) {
-        clearInterval(interval)
-        letsGo = true
-        $paused = false
+  const unsubscribe = playbackEnded.subscribe(isPlaybackEnded => {
+    if (isPlaybackEnded) {
+      if (state.currentTrack === $tracks.length-1) {
+        state = { ...initialeState }
+      } else {
+        state.played = false
+        state.currentTrack++
+        state.count = initialeState.count
+        timer()
+      }
+    }
+  })
+
+  // unsubscribe()
+
+  function timer() {
+    state.interval = setInterval(() => {
+      state.count--
+      if (state.count === 0) {
+        clearInterval(state.interval)
+        state.played = true
+        paused.set(false)
+        state.trackUrl = stardust.route('media.show', { id: $tracks[state.currentTrack] })
       }
     }, 1000)
-  }
-
-  $: if ($playbackEnded) {
-    if (currentTrack === $tracks.length-1) {
-      count = initialCount
-      letsGo = false
-      currentTrack = 0
-      trackUrl = null
-      interval = null
-    } else {
-      currentTrack++
-      trackUrl = stardust.route('media.show', { id: $tracks[currentTrack] })
-    }
   }
 
 </script>
@@ -78,11 +89,11 @@
   no-controls
   autoplay
   paused="true"
-  bind:this={player}
-  class="{ letsGo ? '' : 'hidden' }"
+  bind:this={state.player}
+  class="{ state.played ? '' : 'hidden' }"
 >
   <Video>
-    <source data-src="{ trackUrl }"  type="video/mp4" />
+    <source data-src="{ state.trackUrl }"  type="video/mp4" />
   </Video>
 
   <Ui>
@@ -103,7 +114,7 @@
 </Player>
 
 
-<div class="hero min-h-screen bg-base-200 { letsGo ? 'hidden' : '' }">
+<div class="hero min-h-screen bg-base-200 { state.played ? 'hidden' : '' }">
   <div class="hero-content text-center">
 
     <div>
@@ -120,9 +131,9 @@
       </div>
 
       <div class="absolute left-0 right-0 bottom-10">
-        {#if interval}
+        {#if state.interval}
           <span class="countdown font-mono text-6xl">
-            <span style="--value:{ count };"></span>
+            <span style="--value:{ state.count };"></span>
           </span>
         {:else}
           <div class="alert alert-info shadow-lg mx-auto w-64">
