@@ -30,9 +30,9 @@ class Ws {
 
   public on(event: string, controllerAction: string) {
     const ca = controllerAction.split('.')
-    const c = controllersTree![ca[0]]
+    const ctl = controllersTree![ca[0]]
 
-    const management = new c()
+    const management = new ctl()
 
     this.io.on('connection', socket => {
       socket.on(event, data => {
