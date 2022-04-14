@@ -29,6 +29,7 @@
     Inertia.get(stardust.route('home'))
   }
 
+  // TODO passe 2x
   $socket.on('player:stored', data => {
     players.set(data)
     clearInterval(state.interval)
@@ -57,7 +58,7 @@
     if (isPlaybackEnded) {
       if (state.currentTrack === $tracks.length-1) {
         state = { ...initialeState }
-        $socket.emit('track:ended')
+        $socket.emit('track:ended', { pin: $pin })
       } else {
         state.played = false
         state.currentTrack++

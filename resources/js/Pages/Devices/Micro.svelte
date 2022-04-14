@@ -1,11 +1,16 @@
 <script>
   import { Inertia } from '@inertiajs/inertia'
   import { stardust } from '@eidellev/adonis-stardust'
-  import { pin } from '../../stores'
+  import { socket, pin, player } from '../../stores'
 
   if ($pin === null) {
     Inertia.get(stardust.route('links.index'))
   }
+
+  $socket.on('track:removed', data => {
+    player.set(data)
+    Inertia.get(stardust.route('devices.list'))
+  })
 
 </script>
 
