@@ -1,7 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Room from 'App/Models/Room'
 import PinValidator from 'App/Validators/PinValidator'
-import Track from 'App/Models/Track'
 
 export default class DisplaysController {
   public async index({ inertia }: HttpContextContract) {
