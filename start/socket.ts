@@ -2,11 +2,12 @@ import Ws from '../app/Services/Ws'
 
 Ws.boot()
 
-Ws.on('room:create', 'RoomController.create')
-Ws.on('disconnect', 'RoomController.delete')
-Ws.on('player:store', 'PlayerController.store')
-Ws.on('player:update', 'PlayerController.update')
-Ws.on('disconnect', 'PlayerController.delete')
+Ws.on('room:create', 'RoomsController.create')
+Ws.on('disconnect', 'RoomsController.delete')
+Ws.on('player:store', 'PlayersController.store')
+Ws.on('player:update', 'PlayersController.update')
+Ws.on('disconnect', 'PlayersController.delete')
+Ws.on('track:ended', 'TracksController.ended')
 
 
 /**

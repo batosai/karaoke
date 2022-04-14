@@ -33,10 +33,10 @@ export default class Room extends BaseModel {
   public players: Map<string, Player> = new Map()
 
   get uri(): string {
-    return Env.get('APP_URL') + Route.builder().make('link.index')
+    return Env.get('APP_URL') + Route.builder().make('links.index')
   }
 
   get fullUri(): string {
-    return Env.get('APP_URL') + Route.builder().qs({ qs: { pin: this.pin, } }).make('link.index')
+    return Env.get('APP_URL') + Route.builder().qs({ qs: { pin: this.pin, } }).make('links.index')
   }
 }

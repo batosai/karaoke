@@ -2,7 +2,7 @@ import { Socket } from 'socket.io'
 import Room from 'App/Models/Room'
 import Ws from 'App/Services/Ws'
 
-export default class RoomController {
+export default class RoomsController {
 
   public async create(socket: Socket) {
     const room = await Room.create({

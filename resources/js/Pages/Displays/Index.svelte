@@ -15,7 +15,7 @@
 
   const initialeState = {
     player: null,
-    count: 2,
+    count: 5,
     played: false,
     trackUrl: null,
     currentTrack: 0,
@@ -31,30 +31,33 @@
 
   $socket.on('player:stored', data => {
     players.set(data)
+    clearInterval(state.interval)
   })
 
   $socket.on('player:updated', data => {
     players.set(data)
 
-    if ($tracks.length && $tracks.length === $players.length) {
+    if (!state.played && $tracks.length && $tracks.length === $players.length) {
       timer()
     }
   })
 
   $socket.on('player:delete', data => {
     players.set(data)
-
-    if ($players.length === 0) {
-      clearInterval(state.interval)
-      paused.set(true)
-      state = { ...initialeState }
-    }
   })
 
+  $: if ($players.length === 0) {
+    clearInterval(state.interval)
+    paused.set(true)
+    state = { ...initialeState }
+  }
+
+  // ended video
   const unsubscribe = playbackEnded.subscribe(isPlaybackEnded => {
     if (isPlaybackEnded) {
       if (state.currentTrack === $tracks.length-1) {
         state = { ...initialeState }
+        $socket.emit('track:ended')
       } else {
         state.played = false
         state.currentTrack++
@@ -73,7 +76,7 @@
         clearInterval(state.interval)
         state.played = true
         paused.set(false)
-        state.trackUrl = stardust.route('media.show', { id: $tracks[state.currentTrack] })
+        state.trackUrl = stardust.route('medias.show', { id: $tracks[state.currentTrack] })
       }
     }, 1000)
   }
@@ -86,7 +89,7 @@
 </div>
 
 <Player
-  no-controls
+  controls
   autoplay
   paused="true"
   bind:this={state.player}
@@ -96,7 +99,7 @@
     <source data-src="{ state.trackUrl }"  type="video/mp4" />
   </Video>
 
-  <Ui>
+  <!-- <Ui>
     <ClickToPlay />
 
     <footer class="footer p-4 absolute bottom-0 z-[100]">
@@ -110,7 +113,7 @@
         {/each}
       </div>
     </footer>
-  </Ui>
+  </Ui> -->
 </Player>
 
 

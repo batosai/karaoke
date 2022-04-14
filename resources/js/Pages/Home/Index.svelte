@@ -17,7 +17,7 @@
     })
 
     $socket.on('room:login', () => {
-      Inertia.post(stardust.route('display.store'), {
+      Inertia.post(stardust.route('displays.store'), {
         pin: payload.pin,
         _token: $page.props.csrfToken
       })

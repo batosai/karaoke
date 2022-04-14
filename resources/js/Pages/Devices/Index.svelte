@@ -7,7 +7,7 @@
   let preview
 
   if ($pin === null) {
-    Inertia.get(stardust.route('link.index'))
+    Inertia.get(stardust.route('links.index'))
   }
 
   $: if (files) {
@@ -27,7 +27,7 @@
       data: $player
     })
 
-    Inertia.get(stardust.route('device.list'))
+    Inertia.get(stardust.route('devices.list'))
   }
 
 </script>

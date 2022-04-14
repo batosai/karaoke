@@ -14,7 +14,7 @@
 
   function submit(pin) {
     pinStore.set(pin)
-    Inertia.post(stardust.route('link.store'), {
+    Inertia.post(stardust.route('links.store'), {
       pin,
       _token: $page.props.csrfToken
     })

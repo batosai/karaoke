@@ -9,7 +9,7 @@
   let track = { title: '' }
 
   if ($pin === null) {
-    Inertia.get(stardust.route('link.index'))
+    Inertia.get(stardust.route('links.index'))
   }
 
   function toggleModal(t) {
@@ -26,7 +26,7 @@
       data: $player
     })
 
-    Inertia.get(stardust.route('device.micro'))
+    Inertia.get(stardust.route('devices.micro'))
   }
 </script>
 

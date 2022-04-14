@@ -23,24 +23,24 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'HomeController.index').as('home')
-Route.get('/micro', 'MicroController.index').as('micro')
+Route.get('/micro', 'MicrosController.index').as('micros')
 
-Route.resource('/link', 'LinkController')
-  .as('link')
+Route.resource('/link', 'LinksController')
+  .as('links')
   .only(['index', 'store'])
   .middleware({ '*': ['auth'] })
 
-Route.resource('/display', 'DisplayController')
-  .as('display')
+Route.resource('/display', 'DisplaysController')
+  .as('displays')
   .only(['index', 'store'])
   .middleware({ 'index': ['auth'] })
 
-Route.get('/device', 'DeviceController.index').as('device')
-Route.get('/device/list', 'DeviceController.list').as('device.list')
-Route.get('/device/micro', 'DeviceController.micro').as('device.micro')
+Route.get('/device', 'DevicesController.index').as('devices')
+Route.get('/device/list', 'DevicesController.list').as('devices.list')
+Route.get('/device/micro', 'DevicesController.micro').as('devices.micro')
 
-Route.resource('media', 'MediaController')
-  .as('media')
+Route.resource('media', 'MediasController')
+  .as('medias')
   .only(['show'])
 
 import './routes/auth'

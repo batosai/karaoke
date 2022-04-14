@@ -4,11 +4,11 @@ import PinValidator from 'App/Validators/PinValidator'
 import Ws from 'App/Services/Ws'
 
 
-export default class LinkController {
+export default class LinksController {
   public async index({ inertia, request }: HttpContextContract) {
     const pin = request.qs().pin
 
-    return inertia.render('Link/Index', { pin })
+    return inertia.render('Links/Index', { pin })
   }
 
   public async store({ request, response, auth }: HttpContextContract) {
@@ -21,6 +21,6 @@ export default class LinkController {
 
     Ws.io.to(room.socketId).emit('room:login')
 
-    response.redirect().toRoute('device')
+    response.redirect().toRoute('devices')
   }
 }

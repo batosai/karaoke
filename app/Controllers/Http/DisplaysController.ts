@@ -3,9 +3,9 @@ import Room from 'App/Models/Room'
 import PinValidator from 'App/Validators/PinValidator'
 import Track from 'App/Models/Track'
 
-export default class DisplayController {
+export default class DisplaysController {
   public async index({ inertia }: HttpContextContract) {
-      return inertia.render('Display/Index')
+      return inertia.render('Displays/Index')
   }
 
   public async store({ request, response, auth }: HttpContextContract) {
@@ -17,6 +17,6 @@ export default class DisplayController {
       await auth.loginViaId(room.userId)
     }
 
-    response.redirect().toRoute('display.index')
+    response.redirect().toRoute('displays.index')
   }
 }

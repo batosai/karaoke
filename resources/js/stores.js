@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store'
+import { stardust } from '@eidellev/adonis-stardust'
 import { pluck } from './utils'
 
 export const socket = writable(null)
@@ -35,7 +36,24 @@ const playersStore = () => {
   return {
 		subscribe,
 		set: values => {
-      tracks.set(pluck(values, 'track').filter(x => x))
+      if (values.length) {
+        tracks.set(pluck(values, 'track').filter(x => x))
+      }
+      else {
+        tracks.set([])
+      }
+      // const t = []
+      // values.forEach(player => {
+      //   if (player.track) {
+      //     t.push(stardust.route('media.show', { id: player.track }))
+      //   }
+      // })
+      // tracks.set(t)
+
+
+      set(values)
+    },
+    update: values => {
       set(values)
     }
 	}

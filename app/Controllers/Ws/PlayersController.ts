@@ -2,7 +2,7 @@ import { Socket } from 'socket.io'
 import Ws from 'App/Services/Ws'
 import Player from 'App/Models/Player'
 
-export default class PlayerController {
+export default class PlayersController {
 
   public async store(socket: Socket, { pin, data }: any) {
     if (Ws.rooms.has(pin)) {

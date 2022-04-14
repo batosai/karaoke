@@ -4,7 +4,7 @@
   import { pin } from '../../stores'
 
   if ($pin === null) {
-    Inertia.get(stardust.route('link.index'))
+    Inertia.get(stardust.route('links.index'))
   }
 
 </script>
