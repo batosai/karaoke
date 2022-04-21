@@ -7,8 +7,8 @@ export default class ResetPasswordValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({
-    email: schema.string({}, emailExistsRules()),
-    password: schema.string({ trim: true }, passwordRules()),
+    email: schema.string(emailExistsRules()),
+    password: schema.string(passwordRules()),
   })
 
   public messages = {

@@ -5,10 +5,13 @@ export default class TrackValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({
-    url: schema.string({}, [
+    url: schema.string([
       rules.url()
     ]),
-    title: schema.string.optional({ escape: true, trim: true }, []),
+    title: schema.string.optional([
+      rules.escape(),
+      rules.trim(),
+    ]),
   })
 
   public messages = {}
