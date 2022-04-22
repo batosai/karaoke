@@ -157,6 +157,20 @@ export const logger: LoggerConfig = {
 
   /*
   |--------------------------------------------------------------------------
+  | Redact values
+  |--------------------------------------------------------------------------
+  |
+  | You can redact/remove sensitive values from the logging output by defining
+  | a path to the keys to remove. For example: Removing user password from the
+  | logging output.
+  |
+  */
+  redact: {
+    paths: ['password', '*.password'],
+  },
+
+  /*
+  |--------------------------------------------------------------------------
   | Pretty print
   |--------------------------------------------------------------------------
   |
