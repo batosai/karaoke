@@ -16,7 +16,7 @@ export const tracks = writable([])
 
 // export const players = writable([
 //   // {
-//   //   id: null,
+//   //   socketId: null,
 //   //   avatar: null,
 //   //   name: '',
 //   //   track: null,
@@ -26,7 +26,7 @@ export const tracks = writable([])
 const playersStore = () => {
   const { subscribe, set } = writable([
     // {
-    //   id: null,
+    //   socketId: null,
     //   avatar: null,
     //   name: '',
     //   track: null,
@@ -49,7 +49,6 @@ const playersStore = () => {
       //   }
       // })
       // tracks.set(t)
-
 
       set(values)
     },

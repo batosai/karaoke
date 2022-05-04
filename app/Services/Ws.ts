@@ -1,11 +1,10 @@
 import { join } from 'path'
 import { Server } from 'socket.io'
 import AdonisServer from '@ioc:Adonis/Core/Server'
-import { requireAll } from '@ioc:Adonis/Core/Helpers'
+import { requireAll, types } from '@ioc:Adonis/Core/Helpers'
 import Room from 'App/Models/Room'
 
 const controllersTree = requireAll(join(__dirname, '../', 'Controllers', 'Ws'))
-
 class Ws {
   public io: Server
   public rooms: Map<string, Room> = new Map()
@@ -28,9 +27,15 @@ class Ws {
     })
   }
 
-  public on(event: string, controllerAction: string) {
-    const ca = controllerAction.split('.')
-    const ctl = controllersTree![ca[0]]
+  public on(event: string, controllerAction: string | [string, string]) {
+    let ca, ctl
+    if (types.isArray(controllerAction)) {
+      ca = controllerAction[1].split('.')
+      ctl = controllersTree![controllerAction[0]][ca[0]]
+    } else {
+      ca = controllerAction.split('.')
+      ctl = controllersTree![ca[0]]
+    }
 
     const management = new ctl()
 

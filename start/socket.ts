@@ -8,6 +8,10 @@ Ws.on('player:store', 'PlayersController.store')
 Ws.on('player:update', 'PlayersController.update')
 Ws.on('disconnect', 'PlayersController.delete')
 Ws.on('track:ended', 'TracksController.ended')
+Ws.on('offer:make', ['webRTC', 'OffersController.make'])
+Ws.on('answer:make', ['webRTC', 'AnswersController.make'])
+Ws.on('candidature:create', ['webRTC', 'CandidaturesController.create'])
+// Ws.on('disconnect', ['webRTC', 'ConnectionsController.delete'])
 
 
 /**

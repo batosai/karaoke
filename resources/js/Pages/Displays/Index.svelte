@@ -22,6 +22,9 @@
     interval: null,
   }
 
+  const { RTCPeerConnection } = window
+  const peerConnections = {}
+
   let state = { ...initialeState }
   const { paused, playbackEnded } = usePlayerStore(() => state.player)
 
@@ -68,7 +71,7 @@
     }
   })
 
-  // unsubscribe()
+  unsubscribe()
 
   function timer() {
     state.interval = setInterval(() => {
@@ -82,7 +85,63 @@
     }, 1000)
   }
 
+  // offerMade
+  $socket.on('offer:made', async data => {
+    peerConnections[data.socketId] = new RTCPeerConnection()
+
+    peerConnections[data.socketId].oniceconnectionstatechange = event => {
+      // console.log(peerConnections[data.socketId].iceConnectionState)
+      if (peerConnections[data.socketId].iceConnectionState === 'failed') {
+        alert(conn.name + "'s connection failed")
+      }
+    }
+
+    peerConnections[data.socketId].ontrack = ({ streams: [stream] }) => {
+      // const audio = document.createElement('audio')
+      // audio.setAttribute('autoplay', 'true')
+      // audio.setAttribute('controls', 'true')
+      // audio.setAttribute('id', data.socketId)
+
+      // document.getElementById('audio').appendChild(audio)
+
+      const remoteVideo = document.getElementById(data.socketId)
+      remoteVideo.srcObject = stream
+    }
+
+    //////
+
+    await peerConnections[data.socketId].setRemoteDescription(
+      new RTCSessionDescription(data.offer),
+    )
+
+    const answer = await peerConnections[data.socketId].createAnswer()
+    await peerConnections[data.socketId].setLocalDescription(
+      new RTCSessionDescription(answer),
+    )
+
+    $socket.emit('answer:make', {
+      pin: $pin,
+      answer,
+      to: data.socketId,
+    })
+  })
+
+  $socket.on('candidate:store', data => {
+    if (data.candidate)
+      peerConnections[data.socketId].addIceCandidate(data.candidate)
+  })
+
+  // $socket.on('connection:delete', data => {
+  //   document.getElementById(data.socketId).remove()
+  // })
+
 </script>
+
+<section id="audio">
+  {#each $players as p}
+    <audio controls="true" autoplay="true" id={p.socketId} />
+  {/each}
+</section>
 
 <div class="fixed top-10 right-10 bg-white rounded-box p-5 z-50">
   <QrCode value="https://chaufourier.fr?code=1234" size="150" />
@@ -100,7 +159,7 @@
     <source data-src="{ state.trackUrl }"  type="video/mp4" />
   </Video>
 
-  <!-- <Ui>
+  <Ui>
     <ClickToPlay />
 
     <footer class="footer p-4 absolute bottom-0 z-[100]">
@@ -109,12 +168,13 @@
           <div class="avatar">
             <div class="w-12">
               <img src="{ p.avatar }" alt="" />
+              <audio controls="true" autoplay="true" id={p.socketId} />
             </div>
           </div>
         {/each}
       </div>
     </footer>
-  </Ui> -->
+  </Ui>
 </Player>
 
 
