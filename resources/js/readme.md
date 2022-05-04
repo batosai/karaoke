@@ -30,3 +30,27 @@
 
 - choose photo
 - input name
+
+# /display (TV device)
+
+- show user
+- wait tracks 
+# /device/list (phone device)
+
+- choose track
+
+# /display (TV device)
+
+- launch video
+
+# /device/micro (phone device)
+
+- micro
+
+# /display (TV device)
+
+- ended video wait new track 
+
+# /device/list (phone device)
+
+- choose track
