@@ -18,10 +18,12 @@ export default class RoomsController {
   }
 
   public async delete(socket: Socket) {
-    const room = await Room.findByOrFail('socket_id', socket.id)
+    const room = await Room.findBy('socket_id', socket.id)
 
-    Ws.rooms.delete(room.pin)
-    room.delete()
+    if(room) {
+      Ws.rooms.delete(room!.pin)
+      room!.delete()
+    }
   }
 
 }
