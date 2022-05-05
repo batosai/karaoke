@@ -5,6 +5,7 @@ import { pluck } from './utils'
 export const socket = writable(null)
 
 export const pin = writable(null)
+export const room = writable(null)
 
 export const player = writable({
   avatar: null,

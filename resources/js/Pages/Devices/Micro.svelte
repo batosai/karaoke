@@ -3,13 +3,13 @@
   import { stardust } from '@eidellev/adonis-stardust'
   import { socket, pin, player } from '../../stores'
 
-  const { RTCPeerConnection, RTCSessionDescription } = window
-  const peerConnection = new RTCPeerConnection()
-
   if ($pin === null) {
     Inertia.get(stardust.route('links.index'))
   }
   else {
+    const { RTCPeerConnection, RTCSessionDescription } = window
+    const peerConnection = new RTCPeerConnection()
+
     navigator.mediaDevices
       .getUserMedia({ audio: true, video: false })
       .then(async mediaStream => {
