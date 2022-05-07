@@ -4,18 +4,18 @@
   import { socket, pin, player } from '../../stores'
 
   let files
-  let preview
 
   if ($pin === null) {
     Inertia.get(stardust.route('links.index'))
   }
+
+  $player.avatar = `/images/profil${Math.floor(Math.random() * 5)+1}.png`
 
   $: if (files) {
     if (files[0]) {
       const fileReader = new FileReader()
       fileReader.readAsDataURL(files[0])
       fileReader.addEventListener('load', ({ target }) => {
-        preview = target.result
         $player.avatar = target.result
       })
     }
@@ -38,13 +38,7 @@
 
       <div class="avatar mb-20">
         <div class="w-48 rounded-full ring">
-
-          {#if files && files[0]}
-            <img src="{ preview }" alt="" />
-          {:else}
-            <img src="https://api.lorem.space/image/face?hash=3174" alt="" />
-          {/if}
-
+          <img src={$player.avatar} alt="" />
           <input type="file"
             bind:files
             class="absolute top-0 left-0 opacity-0 w-48 h-48"
@@ -53,11 +47,11 @@
         </div>
       </div>
 
-      <input
+      <!-- <input
         type="text"
         placeholder="Votre nom"
         class="input w-full max-w-xs"
-        bind:value={$player.name} />
+        bind:value={$player.name} /> -->
 
       <button
         on:click={next}
