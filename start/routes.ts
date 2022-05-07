@@ -23,6 +23,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', 'HomeController.index').as('home')
+Route.post('/', 'HomeController.store').as('home.store')
 Route.get('/micro', 'MicrosController.index').as('micros')
 
 Route.resource('/link', 'LinksController')

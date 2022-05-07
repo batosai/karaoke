@@ -4,14 +4,28 @@
   import { stardust } from '@eidellev/adonis-stardust'
   import QrCode from 'svelte-qrcode'
   import PinInput from '../../components/Pin'
-  import { socket, pin, room } from '../../stores'
+  import { socket, room } from '../../stores'
+  import { pin as pinStore } from '../../stores'
 
-  let value
+  export let pin
+  let code
+
+  if (pin) {
+    submit(pin)
+  }
+
+  function submit(pin) {
+    pinStore.set(pin)
+    Inertia.post(stardust.route('home.store'), {
+      pin,
+      _token: $page.props.csrfToken
+    })
+  }
 
   $socket.on('connect', () => {
     $socket.emit('room:create')
     $socket.on('room:store', async data => {
-      pin.set(data.pin)
+      pinStore.set(data.pin)
       room.set(data)
     })
 
@@ -25,8 +39,19 @@
 </script>
 
 <section class="sm:hidden">
-  <PinInput size={4} bind:pin={value} />
+  <div class="fixed inset-0 w-full h-full flex items-center justify-center">
+    <PinInput size={4} bind:pin={code} submit={submit} />
+  </div>
 </section>
+
+{#if $page.props.errors}
+  <div class="absolute bottom-0 p-10 w-full">
+    <div class="alert alert-error shadow-lg justify-center">
+      <span>{ $page.props.errors.pin }</span>
+    </div>
+  </div>
+{/if}
+
 
 <section class="hidden sm:flex items-center m-auto justify-center h-screen">
   {#if !$room}
