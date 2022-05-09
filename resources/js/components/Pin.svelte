@@ -31,7 +31,7 @@
     let result =
       key === KEYBOARD.BACKSPACE ||
       key === KEYBOARD.DELETE ||
-      key === KEYBOARD.ANDROID_BACKSPACE;
+      key === KEYBOARD.ANDROID_BACKSPACE
     return result;
   }
 
@@ -57,10 +57,11 @@
     else if (isKeyDelete(e.keyCode) && currentIndex !== 0) {
       // remove value of current digit & move to previous digit
       deleteCurrentPin(i)
-      newIndex = (currentIndex + items.length - 1) % items.length;
+      newIndex = (currentIndex + items.length - 1) % items.length
     }
+
     // test value. if [a-zA-Z0-9], change value of current digit
-    if (regx.test(e.key)) {
+    if (!isKeyDelete(e.keyCode) && regx.test(e.key)) {
       pins[i] = e.key.toUpperCase()
       pin = calcPin(pins)
 
