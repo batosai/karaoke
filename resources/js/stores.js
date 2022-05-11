@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import { stardust } from '@eidellev/adonis-stardust'
+// import { stardust } from '@eidellev/adonis-stardust'
 import { pluck } from './utils'
 
 export const socket = writable(null)
