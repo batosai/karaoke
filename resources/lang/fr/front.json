@@ -1,20 +1,16 @@
 {
-  "title": "Psychologue clinicienne",
-  "subtitle": "En visioconférence",
-  "read_more": "Lire la suite",
-  "appointment": "Prendre rendez-vous",
-  "contact": {
-    "title": "Contact",
-    "description": "Pour toute question, vous pouvez me contacter via le formulaire ci-dessous ou par téléphone.",
-    "name": "Nom",
-    "email": "Email",
-    "subject": "Sujet",
-    "message": "Message",
-    "send": "Envoyer"
+  "home": {
+    "title": "Accéder à",
+    "description": "A partir d'un autre appareil et rentrez le code suivant",
+    "description2": "Ou flashez ce QR Code avec votre appareil photo"
   },
-  "nav": {
-    "home": "Accueil",
-    "appointment": "Prendre rendez-vous",
-    "contact": "Contact"
+  "devices": {
+    "next": "Suivant",
+    "confirmation": "Confirmer !",
+    "cancel": "Annuler",
+    "choose": "Choisir"
+  },
+  "displays": {
+    "waiting": "En attente des participants..."
   }
 }

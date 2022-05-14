@@ -7,7 +7,7 @@
   import { socket, room } from '../../stores'
   import { pin as pinStore } from '../../stores'
 
-  export let pin
+  export let pin, t
   let code
 
   if (pin) {
@@ -60,8 +60,8 @@
     <div class="flex w-full items-center">
       <div class="grid h-96 m-10 grow place-items-center">
         <div class="text-center">
-          <h1 class="text-4xl">Accéder à { $room.uri }</h1>
-          <p>A partir d'un autre appareil et rentrez le code suivant</p>
+          <h1 class="text-4xl">{ t['front.home.title'] } { $room.uri }</h1>
+          <p>{ t['front.home.description'] }</p>
         </div>
         <div class="flex gap-4 text-6xl text-white">
           <div class="flex items-center justify-center bg-blue-500 rounded-box w-28 h-28">{ $room.pin[0] }</div>
@@ -74,7 +74,7 @@
       <div class="my-10 mx-0 divider divider-horizontal"></div>
 
       <div class="grid h-96 m-10 grow place-items-center">
-        <p class="mb-10">Ou flashez ce QR Code avec votre appareil photo</p>
+        <p class="mb-10">{ t['front.home.description'] }</p>
         <div class="bg-white rounded-box p-5">
           <QrCode value="{ $room.fullUri }" size="300" />
         </div>

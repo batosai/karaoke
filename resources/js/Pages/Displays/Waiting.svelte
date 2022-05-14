@@ -2,7 +2,7 @@
   import { players } from '../../stores'
   import { initialeState } from './utils'
 
-  export let state = { ...initialeState }
+  export let state = { ...initialeState }, t
 </script>
 
 <div class="hero min-h-screen bg-base-200 { state.played ? 'hidden' : '' }">
@@ -28,7 +28,7 @@
           </span>
         {:else}
           <div class="alert alert-info shadow-lg mx-auto w-64">
-            En attente des participants...
+            { t['front.displays.waiting'] }
           </div>
         {/if}
       </div>

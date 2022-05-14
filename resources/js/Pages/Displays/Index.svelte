@@ -9,6 +9,8 @@
   import Player from './Player'
   import Waiting from './Waiting'
 
+  export let t
+
   const { RTCPeerConnection } = window
   const peerConnections = {}
 
@@ -95,4 +97,4 @@
 
 <QrCode />
 <Player bind:player={state.player} state={state} />
-<Waiting state={state} />
+<Waiting state={state} t={t} />

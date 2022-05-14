@@ -3,6 +3,7 @@
   import { stardust } from '@eidellev/adonis-stardust'
   import { socket, pin, player } from '../../stores'
 
+  export let t
   let files
 
   if ($pin === null) {
@@ -56,7 +57,7 @@
       <button
         on:click={next}
         class="btn btn-wide w-full max-w-xs mt-10">
-        Suivant
+        { t['front.devices.next'] }
       </button>
     </div>
   </div>

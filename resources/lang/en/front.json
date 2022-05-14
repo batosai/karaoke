@@ -1,1 +1,16 @@
-{}
+{
+  "home": {
+    "title": "Access to",
+    "description": "From another device and enter the following code",
+    "description2": "Or scan this QR Code with your camera"
+  },
+  "devices": {
+    "next": "Next",
+    "confirmation": "Confirm!",
+    "cancel": "Cancel",
+    "choose": "Choose"
+  },
+  "displays": {
+    "waiting": "Waiting..."
+  }
+}

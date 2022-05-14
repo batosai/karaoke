@@ -5,6 +5,7 @@
 
   export let tracks
 
+  export let t
   let modal
   let track = { title: '' }
 
@@ -61,11 +62,11 @@
 
 <div class="modal" bind:this={modal}>
   <div class="modal-box">
-    <h3 class="text-lg font-bold">Confirm!</h3>
+    <h3 class="text-lg font-bold">{ t['front.devices.confirmation'] }</h3>
     <p class="py-4">{track.title}</p>
     <div class="modal-action">
-      <button class="btn" on:click={toggleModal}>Cancel</button>
-      <button class="btn" on:click={next}>Choose</button>
+      <button class="btn" on:click={toggleModal}>{ t['front.devices.cancel'] }</button>
+      <button class="btn" on:click={next}>{ t['front.devices.choose'] }</button>
     </div>
   </div>
 </div>
