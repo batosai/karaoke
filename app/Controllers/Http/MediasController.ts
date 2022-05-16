@@ -5,7 +5,6 @@ import ytdl from 'ytdl-core'
 export default class MediasController {
   public async show({ response, request }: HttpContextContract) {
     const track = await Track.findOrFail(request.param('id'))
-    // const link = 'https://www.youtube.com/watch?v=MbUIY7RXi_E'
     return response.stream(ytdl(track.url))
   }
 }

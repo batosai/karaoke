@@ -11,15 +11,25 @@ export default class DevicesController {
     })
   }
 
-  public async list({ inertia }: HttpContextContract) {
+  public async list({ inertia, request }: HttpContextContract) {
+    const { name } = request.qs()
 
-    const tracks = await Track.all()
+    let tracks
+
+    if (name) {
+      const query = Track.query().where('title', 'LIKE', `%${name}%`)
+      tracks = query.exec()
+    } else {
+      tracks = await Track.all()
+    }
+
     return inertia.render('Devices/List', {
       tracks,
       t: {
         'front.devices.confirmation': I18n.locale(I18n.defaultLocale).formatMessage('front.devices.confirmation'),
         'front.devices.cancel': I18n.locale(I18n.defaultLocale).formatMessage('front.devices.cancel'),
         'front.devices.choose': I18n.locale(I18n.defaultLocale).formatMessage('front.devices.choose'),
+        'front.devices.search': I18n.locale(I18n.defaultLocale).formatMessage('front.devices.search'),
       }
     })
   }

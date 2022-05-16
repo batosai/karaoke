@@ -8,6 +8,7 @@
   export let t
   let modal
   let track = { title: '' }
+  let filters = { name: null }
 
   if ($pin === null) {
     Inertia.get(stardust.route('links.index'))
@@ -29,16 +30,22 @@
 
     Inertia.get(stardust.route('devices.micro'))
   }
+
+  function handleSubmit() {
+    Inertia.get(stardust.route('devices.list'), filters)
+  }
 </script>
 
 <header class="fixed bottom-0 z-30 w-screen">
-  <div class="navbar bg-base-100">
-    <div class="form-control w-full">
-      <div class="input-group">
-        <input type="text" placeholder="Search…" class="input input w-full" />
+  <form on:submit|preventDefault={handleSubmit} method="GET">
+    <div class="navbar bg-base-100">
+      <div class="form-control w-full">
+        <div class="input-group">
+          <input type="text" placeholder="{ t['front.devices.search'] }" bind:value={filters.name} class="input input w-full" />
+        </div>
       </div>
     </div>
-  </div>
+  </form>
 </header>
 
 <div

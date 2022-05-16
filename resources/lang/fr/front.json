@@ -8,7 +8,8 @@
     "next": "Suivant",
     "confirmation": "Confirmer !",
     "cancel": "Annuler",
-    "choose": "Choisir"
+    "choose": "Choisir",
+    "search": "Recherche..."
   },
   "displays": {
     "waiting": "En attente des participants..."
