@@ -6,7 +6,9 @@
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
     "start": "node build/server.js",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "deploy": "pm2 deploy production",
+    "exec": "pm2 deploy production exec"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.6.2",
