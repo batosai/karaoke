@@ -5,6 +5,6 @@ export default class UserLockValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({
-    blocked: schema.boolean(),
+    blocked: schema.boolean.optional(),
   })
 }
