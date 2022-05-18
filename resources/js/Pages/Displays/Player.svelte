@@ -13,7 +13,7 @@
   export let state = { ...initialeState }
 </script>
 
-<div class="hero min-h-screen block">
+<div class="hero min-h-screen { state.played ? 'block' : 'hidden' }">
   <Player
     controls
     autoplay
