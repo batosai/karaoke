@@ -26,7 +26,8 @@ export const csp: ShieldConfig['csp'] = {
   | The CSP rules are disabled by default for seamless onboarding.
   |
   */
-  enabled: Env.get('NODE_ENV') === 'production',
+  // enabled: Env.get('NODE_ENV') === 'production',
+  enabled: false,
 
   /*
   |--------------------------------------------------------------------------
