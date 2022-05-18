@@ -11,7 +11,7 @@ export const peer = async (peerConnection, data) => {
   peerConnection.oniceconnectionstatechange = event => {
     // console.log(peerConnection.iceConnectionState)
     if (peerConnection.iceConnectionState === 'failed') {
-      alert(conn.name + "'s connection failed")
+      alert(peerConnection.name + "'s connection failed")
     }
   }
 
