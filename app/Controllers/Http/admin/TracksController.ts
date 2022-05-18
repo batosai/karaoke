@@ -50,7 +50,7 @@ export default class TracksController {
   }
 
   public async update(ctx: HttpContextContract) {
-    const { request, response, auth, bouncer } = ctx
+    const { request, response, bouncer } = ctx
     const track = await Track.findOrFail(request.param('id'))
 
     await bouncer.with('TrackPolicy').authorize('update', track)
