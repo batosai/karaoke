@@ -8,12 +8,12 @@ export const initialeState = {
 }
 
 export const peer = async (peerConnection, data) => {
-  peerConnection.oniceconnectionstatechange = event => {
-    // console.log(peerConnection.iceConnectionState)
-    if (peerConnection.iceConnectionState === 'failed') {
-      alert(peerConnection.name + "'s connection failed")
-    }
-  }
+  // peerConnection.oniceconnectionstatechange = event => {
+  //   // console.log(peerConnection.iceConnectionState)
+  //   if (peerConnection.iceConnectionState === 'failed') {
+  //     alert(peerConnection.name + "'s connection failed")
+  //   }
+  // }
 
   peerConnection.ontrack = ({ streams: [stream] }) => {
     const remoteVideo = document.getElementById(data.socketId)
