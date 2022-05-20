@@ -4278,6 +4278,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"compress.js@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "compress.js@npm:1.2.2"
+  dependencies:
+    regenerator-runtime: ^0.13.9
+  checksum: fa72038808c0688e746cd33620e13b99d7da5ba31fd2a420611218dafcfb8b7f7519b391f374b04f06e23f055596e7310c8ef621ce9a8785665f496566c3fab4
+  languageName: node
+  linkType: hard
+
 "compressible@npm:~2.0.16":
   version: 2.0.18
   resolution: "compressible@npm:2.0.18"
@@ -7045,6 +7054,7 @@ __metadata:
     alpinejs: ^3.10.2
     autoprefixer: ^10.4.7
     color: ^4.2.3
+    compress.js: ^1.2.2
     daisyui: ^2.14.3
     flatpickr: ^4.6.13
     luxon: ^2.4.0
@@ -9564,7 +9574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13.4":
+"regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.9":
   version: 0.13.9
   resolution: "regenerator-runtime@npm:0.13.9"
   checksum: 65ed455fe5afd799e2897baf691ca21c2772e1a969d19bb0c4695757c2d96249eb74ee3553ea34a91062b2a676beedf630b4c1551cc6299afb937be1426ec55e

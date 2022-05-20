@@ -53,6 +53,7 @@
     "@vscode/sqlite3": "^5.0.8",
     "alpinejs": "^3.10.2",
     "autoprefixer": "^10.4.7",
+    "compress.js": "^1.2.2",
     "daisyui": "^2.14.3",
     "flatpickr": "^4.6.13",
     "luxon": "^2.4.0",
