@@ -52,7 +52,6 @@
   </div>
 {/if}
 
-
 <section class="hidden sm:flex items-center m-auto justify-center h-screen">
   {#if !$room}
     <div class="btn btn-ghost btn-lg loading"></div>
