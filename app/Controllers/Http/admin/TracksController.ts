@@ -34,6 +34,8 @@ export default class TracksController {
     if (!track.title) {
       const meta = await ytdl.getInfo(track.url)
       track.title = meta.videoDetails.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+
+      // console.log(meta.videoDetails.thumbnails[0].url)
     }
     await track.save()
 
