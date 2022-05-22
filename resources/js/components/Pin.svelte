@@ -14,7 +14,8 @@
     if(pin.length === size) {
       disabled = true
       e.target.blur()
-      submit(pin)
+
+      submit(pin.toUpperCase())
     }
   }
 </script>
