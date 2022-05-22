@@ -23,7 +23,7 @@
 
 <section>
   <div class="fixed inset-0 w-full h-full flex items-center justify-center">
-    <PinInput size={4} bind:pin={code} submit={submit} />
+    <PinInput size={4} bind:pin={code} submit={submit} errors={$page.props.errors ? $page.props.errors : null} />
   </div>
 </section>
 
