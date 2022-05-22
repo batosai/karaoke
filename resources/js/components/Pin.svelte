@@ -17,7 +17,6 @@
       submit(pin)
     }
   }
-
 </script>
 
 <div class="card bg-neutral shadow-xl p-4">
@@ -26,7 +25,7 @@
       type="text"
       pattern="[a-zA-Z0-9]{1}"
       placeholder="xxxx"
-      maxlength="4"
+      maxlength={size}
       on:keyup={changeHandler}
       bind:value={pin}
       disabled={disabled}
