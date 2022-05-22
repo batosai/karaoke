@@ -102,7 +102,7 @@
         class="pin-item input h-16 w-12 mx-2 flex items-center text-center text-2xl uppercase bg-gray-200"
         id={`pin${i}`}
         type="text"
-        pattern="\d{1}"
+        pattern="[a-zA-Z0-9]{1}"
         maxlength="1"
         on:keydown|preventDefault={(event) => changeHandler(event, i)}
         placeholder="" />
