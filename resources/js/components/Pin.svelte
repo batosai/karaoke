@@ -44,7 +44,7 @@
     const current = document.activeElement
     const items = [...document.getElementsByClassName('pin-item')]
     const currentIndex = items.indexOf(current)
-    let newIndex
+    let newIndex = 0
 
     let regx = new RegExp(/^[a-zA-Z0-9]+$/)
     // backspace pressed on first digit
@@ -61,7 +61,7 @@
     }
 
     // test value. if [a-zA-Z0-9], change value of current digit
-    if (!isKeyDelete(e.keyCode) && regx.test(e.key)) {
+    if (!isKeyDelete(e.keyCode) && regx.test(e.key) && e.key.length === 1) {
       pins[i] = e.key.toUpperCase()
       pin = calcPin(pins)
 
@@ -99,7 +99,7 @@
       <input
         bind:value={pins[i]}
         maxLength="1"
-        class="pin-item input h-16 w-12 mx-2 flex items-center text-center text-2xl uppercase bg-gray-200"
+        class="pin-item input h-16 w-12 p-0 mx-2 flex items-center text-center text-xl uppercase bg-gray-200"
         id={`pin${i}`}
         type="text"
         pattern="[a-zA-Z0-9]{1}"
