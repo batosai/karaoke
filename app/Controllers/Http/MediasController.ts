@@ -6,6 +6,11 @@ export default class MediasController {
   public async show({ response, request }: HttpContextContract) {
     const track = await Track.findOrFail(request.param('id'))
 
-    return response.stream(ytdl(track.url, { quality: '18' }))
+    const meta = await ytdl.getInfo(track.url)
+console.log(meta)
+    // return response.stream(ytdl(track.url, { quality: '133' }))
+    return response.stream(ytdl(track.url, {
+      filter: format => format.container === 'mp4',
+    }))
   }
 }
