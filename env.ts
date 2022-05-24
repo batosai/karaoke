@@ -28,4 +28,6 @@ export default Env.rules({
   SMTP_HOST: Env.schema.string({ format: 'host' }),
   SMTP_PORT: Env.schema.number(),
   FROM_EMAIL: Env.schema.string(),
+  FFMPEG_PATH: Env.schema.string(),
+  FFPROBE_PATH: Env.schema.string(),
 })

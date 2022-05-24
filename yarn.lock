@@ -3446,6 +3446,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"async@npm:>=0.2.9":
+  version: 3.2.3
+  resolution: "async@npm:3.2.3"
+  checksum: c4bee57ab2249af3dc83ca3ef9acfa8e822c0d5e5aa41bae3eaf7f673648343cd64ecd7d26091ffd357f3f044428b17b5f00098494b6cf8b6b3e9681f0636ca1
+  languageName: node
+  linkType: hard
+
 "atob@npm:^2.1.2":
   version: 2.1.2
   resolution: "atob@npm:2.1.2"
@@ -5713,6 +5720,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fluent-ffmpeg@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "fluent-ffmpeg@npm:2.1.2"
+  dependencies:
+    async: ">=0.2.9"
+    which: ^1.1.1
+  checksum: ab7ed909486298f33b991af051c38e40410ae5b03b0b6d33d0855636a0b56330ffe9efed6c7eedb00f1c6c713c795cbdb283f6f2216db925ae5e737a22c6a97f
+  languageName: node
+  linkType: hard
+
 "focus-trap@npm:^6.6.1":
   version: 6.9.2
   resolution: "focus-trap@npm:6.9.2"
@@ -7057,6 +7074,7 @@ __metadata:
     compress.js: ^1.2.2
     daisyui: ^2.14.3
     flatpickr: ^4.6.13
+    fluent-ffmpeg: ^2.1.2
     luxon: ^2.4.0
     pg: ^8.7.3
     phc-argon2: ^1.1.3
@@ -11504,6 +11522,17 @@ __metadata:
     tr46: ^1.0.1
     webidl-conversions: ^4.0.2
   checksum: fecb07c87290b47d2ec2fb6d6ca26daad3c9e211e0e531dd7566e7ff95b5b3525a57d4f32640ad4adf057717e0c215731db842ad761e61d947e81010e05cf5fd
+  languageName: node
+  linkType: hard
+
+"which@npm:^1.1.1":
+  version: 1.3.1
+  resolution: "which@npm:1.3.1"
+  dependencies:
+    isexe: ^2.0.0
+  bin:
+    which: ./bin/which
+  checksum: f2e185c6242244b8426c9df1510e86629192d93c1a986a7d2a591f2c24869e7ffd03d6dac07ca863b2e4c06f59a4cc9916c585b72ee9fa1aa609d0124df15e04
   languageName: node
   linkType: hard
 

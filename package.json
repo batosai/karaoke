@@ -56,6 +56,7 @@
     "compress.js": "^1.2.2",
     "daisyui": "^2.14.3",
     "flatpickr": "^4.6.13",
+    "fluent-ffmpeg": "^2.1.2",
     "luxon": "^2.4.0",
     "pg": "^8.7.3",
     "phc-argon2": "^1.1.3",
