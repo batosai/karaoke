@@ -3,7 +3,6 @@ import Env from '@ioc:Adonis/Core/Env'
 import Track from 'App/Models/Track'
 import ytdl from 'ytdl-core'
 import ffmpeg from 'fluent-ffmpeg'
-import fs from 'fs'
 
 export default class MediasController {
   public async show({ response, request }: HttpContextContract) {
