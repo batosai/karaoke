@@ -48,7 +48,7 @@ export default class MediasController {
 
 
 // console.log(meta)
-    return response.stream(ytdl(track.url, { quality: '136' }))
+    return response.stream(ytdl(track.url, { quality: '18' }))
     // return response.stream(ytdl(track.url, { quality: 'highestaudio' }))
     // return response.stream(ytdl(track.url, {
     //   filter: format => format.container === 'mp4',
