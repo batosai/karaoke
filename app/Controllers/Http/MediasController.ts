@@ -13,29 +13,32 @@ export default class MediasController {
 
     // response.header('Content-Type', `video/mp4`)
 
-    // const command = ffmpeg({ source: ytdl(track.url, { quality: '136' }) })
-    // // const command = ffmpeg().input(ytdl(track.url, { quality: '136' }))
+    const command = ffmpeg({ source: ytdl(track.url) })
+    // const command = ffmpeg().input(ytdl(track.url, { quality: '136' }))
 
-    //   .on('error', function(err) {
-    //     console.log('An error occurred: ' + err.message);
-    //   })
-    //   // .ffprobe(0, function(err, data) {
-    //   //   console.log('file1 metadata:');
-    //   //   console.dir(data);
-    //   // })
+      .on('error', function(err) {
+        console.log('An error occurred: ' + err.message);
+      })
+      // .ffprobe(0, function(err, data) {
+      //   console.log('file1 metadata:');
+      //   console.dir(data);
+      // })
+      // .mergeAdd(ytdl(track.url, { quality: '136' }))
 
-    //   .outputOptions(['-frag_duration 100','-movflags frag_keyframe+empty_moov+faststart'])
-    //   .toFormat('mp4')
+      .outputOptions(['-frag_duration 100','-movflags frag_keyframe+empty_moov+faststart'])
+      // .size('480x?')
+      .videoCodec('libx264')
+      .audioCodec('libmp3lame')
+      .toFormat('mp4')
 
-    //   .mergeAdd(ytdl(track.url, { quality: 'highestaudio' }))
+      // .mergeAdd(ytdl(track.url, { quality: 'highestaudio' }))
 
-    //   // .videoCodec('libx264')
-    //   // .audioCodec('libmp3lame')
-    //   // .toFormat('webm')
-    //   // .videoCodec('libvpx-vp9')
-    //   // .audioCodec('libmp3lame')
 
-    //   return response.stream(command.pipe())
+      // .toFormat('webm')
+      // .videoCodec('libvpx-vp9')
+      // .audioCodec('libmp3lame')
+
+      return response.stream(command.pipe())
 
     // const meta = await ytdl.getInfo(track.url)
 
@@ -47,7 +50,7 @@ export default class MediasController {
 
 
 // console.log(meta)
-    return response.stream(ytdl(track.url, { quality: '136' }))
+    // return response.stream(ytdl(track.url, { quality: '136' }))
     // return response.stream(ytdl(track.url, { quality: 'highestaudio' }))
     // return response.stream(ytdl(track.url, {
     //   filter: format => format.container === 'mp4',
