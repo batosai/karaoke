@@ -25,11 +25,13 @@ export default class MediasController {
       // })
       // .mergeAdd(ytdl(track.url, { quality: '136' }))
 
-      .outputOptions(['-frag_duration 100','-movflags frag_keyframe+empty_moov+faststart'])
+      .outputOptions(['-frag_duration 100', '-movflags frag_keyframe+empty_moov+faststart'])
       // .size('480x?')
+      .format('mp4')
+      // .videoCodec('mpeg4')
       .videoCodec('libx264')
       .audioCodec('libmp3lame')
-      .toFormat('mp4')
+      // .toFormat('mp4')
 
       // .mergeAdd(ytdl(track.url, { quality: 'highestaudio' }))
 
