@@ -27,8 +27,9 @@ export default class MediasController {
 
       .outputOptions(['-frag_duration 100', '-movflags frag_keyframe+empty_moov+faststart'])
       // .size('480x?')
-      .format('mov')
+      .format('mp4')
       // .videoCodec('libx264')
+      .videoCodec('libvpx-vp9')
       .audioCodec('libmp3lame')
       // .toFormat('mp4')
 
