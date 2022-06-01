@@ -11,7 +11,7 @@ export default class MediasController {
     ffmpeg.setFfmpegPath(Env.get('FFMPEG_PATH'))
     // ffmpeg.setFfprobePath(Env.get('FFPROBE_PATH'))
 
-    // response.header('Content-Type', `video/mp4`)
+    response.header('Content-Type', `video/mp4`)
 
     const command = ffmpeg({ source: ytdl(track.url) })
     // const command = ffmpeg().input(ytdl(track.url, { quality: '136' }))
@@ -28,9 +28,12 @@ export default class MediasController {
       .outputOptions(['-frag_duration 100', '-movflags frag_keyframe+empty_moov+faststart'])
       // .size('480x?')
       .format('mp4')
-      // .videoCodec('libx264')
-      .videoCodec('libvpx-vp9')
+      .videoCodec('libx264')
       .audioCodec('libmp3lame')
+          // ok turtle
+          // .format('mp4')
+          // .videoCodec('libvpx-vp9')
+          // .audioCodec('libmp3lame')
       // .toFormat('mp4')
 
       // .mergeAdd(ytdl(track.url, { quality: 'highestaudio' }))
