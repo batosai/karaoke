@@ -53,7 +53,8 @@ export default class MediasController {
       // .videoCodec('libvpx')
       // .audioCodec('libmp3lame')
           // ok turtle
-          .outputOptions(['-frag_duration 100', '-movflags frag_keyframe+empty_moov'])
+          .inputOptions('-re')
+          .outputOptions(['-g 52', '-movflags frag_keyframe+empty_moov'])
 
           .format('mp4')
           // .videoCodec('libvpx-vp9')
