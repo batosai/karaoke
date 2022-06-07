@@ -12,6 +12,15 @@ export default class MediasController {
     // ffmpeg.setFfprobePath(Env.get('FFPROBE_PATH'))
 
     response.header('Content-Type', `video/mp4`)
+    response.header('Connection', `keep-alive`)
+
+  //   res.writeHead(206, {
+  //     'Content-Range': 'bytes ' + start + '-' + end + '/' + total,
+  //     'Accept-Ranges': 'bytes',
+  //     'Content-Length': chunksize,
+  //     'Content-Type': 'video/mp4',
+  //     'Connection':'keep-alive'
+  // });
 
     // ffmpeg.ffprobe(ytdl(track.url),function(err, metadata) {
     //     let audioCodec = null
@@ -65,7 +74,8 @@ export default class MediasController {
       // .videoCodec('libvpx-vp9')
       // .audioCodec('libmp3lame')
 
-      return response.stream(command.pipe())
+
+      return response.stream(command.pipe({ end: true }))
 
     // const meta = await ytdl.getInfo(track.url)
 
