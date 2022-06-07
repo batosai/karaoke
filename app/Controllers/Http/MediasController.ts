@@ -11,8 +11,8 @@ export default class MediasController {
     ffmpeg.setFfmpegPath(Env.get('FFMPEG_PATH'))
     // ffmpeg.setFfprobePath(Env.get('FFPROBE_PATH'))
 
-    response.header('Content-Type', `video/mp4`)
-    response.header('Connection', `keep-alive`)
+    // response.header('Content-Type', `video/mp4`)
+    // response.header('Connection', `keep-alive`)
 
   //   res.writeHead(206, {
   //     'Content-Range': 'bytes ' + start + '-' + end + '/' + total,
@@ -54,12 +54,19 @@ export default class MediasController {
       // .audioCodec('libmp3lame')
           // ok turtle
           .inputOptions('-re')
-          .outputOptions(['-g 52', '-movflags frag_keyframe+empty_moov'])
+          .outputOptions(['-crf 30', '-speed 3', '-pix_fmt yuv420p', '-color_primaries 1', '-color_trc 1', '-colorspace 1', '-g 52', '-movflags frag_keyframe+empty_moov'])
+
+          // .outputOptions(['-crf 30', '-speed 3', '-pix_fmt yuv420p', '-color_primaries 1', '-color_trc 1', '-colorspace 1', '-movflags +faststart'])
 
           .format('mp4')
+          // .format('webm')
           // .videoCodec('libvpx-vp9')
           .videoCodec('libx264')
           .audioCodec('libmp3lame')
+
+          // .format('webm')
+          // .withVideoCodec('libvpx')
+          // .addOptions(['-qmin 0', '-qmax 50', '-crf 5'])
 
 //TESTER un fichier mp4 en source
           // .ffprobe(0, function(err, data) {
