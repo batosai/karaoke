@@ -53,7 +53,7 @@ export default class MediasController {
       // .videoCodec('libvpx')
       // .audioCodec('libmp3lame')
           // ok turtle
-          .outputOptions(['-frag_duration 100', '-movflags frag_keyframe+empty_moov+faststart'])
+          .outputOptions(['-frag_duration 100', '-movflags frag_keyframe+empty_moov'])
 
           .format('mp4')
           // .videoCodec('libvpx-vp9')
@@ -75,7 +75,7 @@ export default class MediasController {
       // .audioCodec('libmp3lame')
 
 
-      return response.stream(command.pipe({ end: true }))
+      return response.stream(command.pipe())
 
     // const meta = await ytdl.getInfo(track.url)
 
