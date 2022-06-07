@@ -13,16 +13,28 @@ export default class MediasController {
 
     response.header('Content-Type', `video/mp4`)
 
+    // ffmpeg.ffprobe(ytdl(track.url),function(err, metadata) {
+    //     let audioCodec = null
+    //     let videoCodec = null
+    //     console.log(metadata.streams)
+    //     metadata.streams.forEach(function(stream){
+    //         if (stream.codec_type === "video")
+    //             videoCodec = stream.codec_name
+    //         else if (stream.codec_type === "audio")
+    //             audioCodec = stream.codec_name
+    //     })
+
+    //     console.log("Video codec: %s\nAudio codec: %s", videoCodec, audioCodec)
+    // })
+
+
     const command = ffmpeg({ source: ytdl(track.url) })
     // const command = ffmpeg().input(ytdl(track.url, { quality: '136' }))
 
       .on('error', function(err) {
         console.log('An error occurred: ' + err.message);
       })
-      // .ffprobe(0, function(err, data) {
-      //   console.log('file1 metadata:');
-      //   console.dir(data);
-      // })
+
       // .mergeAdd(ytdl(track.url, { quality: '136' }))
 
       // .outputOptions(['-frag_duration 100', '-movflags frag_keyframe+empty_moov+faststart'])
@@ -33,9 +45,17 @@ export default class MediasController {
       // .audioCodec('libmp3lame')
           // ok turtle
           .outputOptions(['-frag_duration 100', '-movflags frag_keyframe+empty_moov+faststart'])
+
           .format('mp4')
-          .videoCodec('libvpx-vp9')
+          // .videoCodec('libvpx-vp9')
+          .videoCodec('libx264')
           .audioCodec('libmp3lame')
+
+//TESTER un fichier mp4 en source
+          // .ffprobe(0, function(err, data) {
+          //   console.log('file1 metadata:');
+          //   console.dir(data);
+          // })
       // .toFormat('mp4')
 
       // .mergeAdd(ytdl(track.url, { quality: 'highestaudio' }))
