@@ -21,9 +21,9 @@ export default class MediasController {
     // var end = parts[1] ? parseInt(parts[1], 10) : total-1
     // var chunksize = (end-start)+1
 
-    const start = 0
-    const end = 196.394
-    const total = 'N/A'
+    // const start = 0
+    // const end = 196.394
+    // const total = 'N/A'
     // const chunksize = (end-start)+1
 
     const info = await ytdl.getInfo(track.url)
