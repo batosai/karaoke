@@ -54,7 +54,7 @@ export default class MediasController {
     //     console.log(metadata)
     //     console.log("Video codec: %s\nAudio codec: %s", videoCodec, audioCodec)
     // })
-
+/*
 
     const command = ffmpeg({ source: ytdl(track.url) })
     // const command = ffmpeg().input(ytdl(track.url, { quality: '136' }))
@@ -102,7 +102,7 @@ export default class MediasController {
       // .audioCodec('libmp3lame')
 
 
-      return response.stream(command.pipe())
+      // return response.stream(command.pipe())
 
     // const meta = await ytdl.getInfo(track.url)
 
@@ -112,8 +112,9 @@ export default class MediasController {
     // response.header('content-disposition', `attachment; filename="${encodeURIComponent(title)}.mp4"`)
     // return response.stream(ytdl(track.url))
 
-
+*/
 // console.log(meta)
+    return response.stream(ytdl(track.url))
     // return response.stream(ytdl(track.url, { quality: '136' }))
     // return response.stream(ytdl(track.url, { quality: 'highestaudio' }))
     // return response.stream(ytdl(track.url, {
