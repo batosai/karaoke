@@ -3,7 +3,6 @@ import Env from '@ioc:Adonis/Core/Env'
 import Track from 'App/Models/Track'
 import ytdl from 'ytdl-core'
 import ffmpeg from 'fluent-ffmpeg'
-import fs from 'node:fs'
 
 export default class MediasController {
   public async show({ response, request }: HttpContextContract) {
@@ -25,7 +24,7 @@ export default class MediasController {
     const start = 0
     const end = 196.394
     const total = 'N/A'
-    const chunksize = (end-start)+1
+    // const chunksize = (end-start)+1
 
     response.header('Content-Type', `video/mp4`)
     response.header('Content-Range', 'bytes ' + start + '-' + end + '/' + total)
