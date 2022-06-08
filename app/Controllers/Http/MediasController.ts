@@ -26,9 +26,15 @@ export default class MediasController {
     const total = 'N/A'
     // const chunksize = (end-start)+1
 
-    response.header('Content-Type', `video/mp4`)
-    response.header('Content-Range', 'bytes ' + start + '-' + end + '/' + total)
-    // response.header('Content-Length', chunksize)
+    const info = await ytdl.getInfo(track.url)
+
+    const format = ytdl.chooseFormat(info.formats, { quality: '18' })
+console.log('Format found!', format)
+
+    response.header('Content-Type', format.mimeType!)
+    // response.header('Content-Type', 'video/mp4')
+    // response.header('Content-Range', 'bytes ' + format.initRange!.start + '-' + format.initRange!.end + '/' + total)
+    response.header('Content-Length', format.contentLength)
     response.header('Connection', `keep-alive`)
 
   //   res.writeHead(206, {
@@ -113,7 +119,7 @@ export default class MediasController {
 
 */
 // console.log(meta)
-    return response.stream(ytdl(track.url))
+    return response.stream(ytdl(track.url, { quality: '18' }))
     // return response.stream(ytdl(track.url, { quality: '136' }))
     // return response.stream(ytdl(track.url, { quality: 'highestaudio' }))
     // return response.stream(ytdl(track.url, {
