@@ -11,8 +11,8 @@ export default class MediasController {
     ffmpeg.setFfmpegPath(Env.get('FFMPEG_PATH'))
     // ffmpeg.setFfprobePath(Env.get('FFPROBE_PATH'))
 
-    // response.header('Content-Type', `video/mp4`)
-    // response.header('Connection', `keep-alive`)
+    response.header('Content-Type', `video/mp4`)
+    response.header('Connection', `keep-alive`)
 
   //   res.writeHead(206, {
   //     'Content-Range': 'bytes ' + start + '-' + end + '/' + total,
