@@ -3,6 +3,7 @@ import Env from '@ioc:Adonis/Core/Env'
 import Track from 'App/Models/Track'
 import ytdl from 'ytdl-core'
 import ffmpeg from 'fluent-ffmpeg'
+import fs from 'node:fs'
 
 export default class MediasController {
   public async show({ response, request }: HttpContextContract) {
@@ -11,7 +12,24 @@ export default class MediasController {
     ffmpeg.setFfmpegPath(Env.get('FFMPEG_PATH'))
     // ffmpeg.setFfprobePath(Env.get('FFPROBE_PATH'))
 
+
+    // const headers = request.headers()
+    // const range = headers.range || 'bytes=0-'
+    // const parts = range.replace(/bytes=/, "").split("-")
+
+    // var total = stat.size
+    // var start = parseInt(parts[0], 10)
+    // var end = parts[1] ? parseInt(parts[1], 10) : total-1
+    // var chunksize = (end-start)+1
+
+    const start = 0
+    const end = 196.394
+    const total = 'N/A'
+    const chunksize = (end-start)+1
+
     response.header('Content-Type', `video/mp4`)
+    response.header('Content-Range', 'bytes ' + start + '-' + end + '/' + total)
+    // response.header('Content-Length', chunksize)
     response.header('Connection', `keep-alive`)
 
   //   res.writeHead(206, {
@@ -33,6 +51,7 @@ export default class MediasController {
     //             audioCodec = stream.codec_name
     //     })
 
+    //     console.log(metadata)
     //     console.log("Video codec: %s\nAudio codec: %s", videoCodec, audioCodec)
     // })
 
