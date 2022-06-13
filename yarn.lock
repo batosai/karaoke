@@ -39,7 +39,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/assembler@npm:^5.6.2":
+"@adonisjs/assembler@npm:^5.7.0":
   version: 5.7.0
   resolution: "@adonisjs/assembler@npm:5.7.0"
   dependencies:
@@ -66,7 +66,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/attachment-lite@npm:^1.0.4":
+"@adonisjs/attachment-lite@npm:^1.0.7":
   version: 1.0.7
   resolution: "@adonisjs/attachment-lite@npm:1.0.7"
   dependencies:
@@ -78,7 +78,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/auth@npm:^8.1.0":
+"@adonisjs/auth@npm:^8.2.1":
   version: 8.2.1
   resolution: "@adonisjs/auth@npm:8.2.1"
   dependencies:
@@ -125,7 +125,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/bouncer@npm:^2.2.7":
+"@adonisjs/bouncer@npm:^2.3.0":
   version: 2.3.0
   resolution: "@adonisjs/bouncer@npm:2.3.0"
   dependencies:
@@ -152,7 +152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/core@npm:^5.7.6":
+"@adonisjs/core@npm:^5.8.3":
   version: 5.8.3
   resolution: "@adonisjs/core@npm:5.8.3"
   dependencies:
@@ -281,7 +281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/i18n@npm:^1.5.5":
+"@adonisjs/i18n@npm:^1.5.6":
   version: 1.5.6
   resolution: "@adonisjs/i18n@npm:1.5.6"
   dependencies:
@@ -317,7 +317,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/lucid-slugify@npm:^2.1.5":
+"@adonisjs/lucid-slugify@npm:^2.2.0":
   version: 2.2.0
   resolution: "@adonisjs/lucid-slugify@npm:2.2.0"
   dependencies:
@@ -330,29 +330,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/lucid@npm:^17.2.0":
-  version: 17.2.0
-  resolution: "@adonisjs/lucid@npm:17.2.0"
+"@adonisjs/lucid@npm:^18.0.1":
+  version: 18.0.1
+  resolution: "@adonisjs/lucid@npm:18.0.1"
   dependencies:
-    "@faker-js/faker": ^6.1.2
+    "@faker-js/faker": ^6.3.1
     "@poppinss/hooks": ^5.0.3
-    "@poppinss/utils": ^4.0.3
+    "@poppinss/utils": ^4.0.4
     fast-deep-equal: ^3.1.3
     igniculus: ^1.5.0
-    knex: ^1.0.5
-    knex-dynamic-connection: ^2.1.3
-    luxon: ^2.3.1
+    knex: ^2.0.0
+    knex-dynamic-connection: ^3.0.0
+    luxon: ^2.4.0
     macroable: ^7.0.1
     pretty-hrtime: ^1.0.3
     qs: ^6.10.3
     slash: ^3.0.0
   peerDependencies:
     "@adonisjs/core": ^5.1.0
-  checksum: 366ce9de59c952860408ebb1ec18e82628c389e6fee68783181521c0a9e1e5c9909c9ceaa9ae4c1b2092540be4d8fd2406a210dc19de00dc75f875cce7aa7785
+  checksum: 977f4894934e5835692ea515c66901b224765a02a156348cf90d0f5f5df1d8ad6241c92ec839eaddcdb9ecd56542b5e00176c55a2df154b60cd40665e32ca70c
   languageName: node
   linkType: hard
 
-"@adonisjs/mail@npm:^8.0.1":
+"@adonisjs/mail@npm:^8.1.2":
   version: 8.1.2
   resolution: "@adonisjs/mail@npm:8.1.2"
   dependencies:
@@ -384,7 +384,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/repl@npm:^3.1.10":
+"@adonisjs/repl@npm:^3.1.11":
   version: 3.1.11
   resolution: "@adonisjs/repl@npm:3.1.11"
   dependencies:
@@ -414,7 +414,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/session@npm:^6.2.2":
+"@adonisjs/session@npm:^6.4.0":
   version: 6.4.0
   resolution: "@adonisjs/session@npm:6.4.0"
   dependencies:
@@ -426,7 +426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/shield@npm:^7.0.10":
+"@adonisjs/shield@npm:^7.0.11":
   version: 7.0.11
   resolution: "@adonisjs/shield@npm:7.0.11"
   dependencies:
@@ -483,7 +483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/view@npm:^6.1.4":
+"@adonisjs/view@npm:^6.1.5":
   version: 6.1.5
   resolution: "@adonisjs/view@npm:6.1.5"
   dependencies:
@@ -1523,7 +1523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-runtime@npm:^7.17.10":
+"@babel/plugin-transform-runtime@npm:^7.18.5":
   version: 7.18.5
   resolution: "@babel/plugin-transform-runtime@npm:7.18.5"
   dependencies:
@@ -1804,7 +1804,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@faker-js/faker@npm:^6.1.2":
+"@faker-js/faker@npm:^6.3.1":
   version: 6.3.1
   resolution: "@faker-js/faker@npm:6.3.1"
   checksum: 05071e952248f4565218a95b089ef8f616130c6ff914bb416ba7c891f81d123b637c2abe8aa2eb7b207b5d4b8bd9c75c8c2133019d2d11db4176948737a95813
@@ -2331,7 +2331,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/forms@npm:^0.5.1":
+"@tailwindcss/forms@npm:^0.5.2":
   version: 0.5.2
   resolution: "@tailwindcss/forms@npm:0.5.2"
   dependencies:
@@ -3346,15 +3346,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"args@npm:^5.0.1":
-  version: 5.0.3
-  resolution: "args@npm:5.0.3"
+"args@npm:5.0.1":
+  version: 5.0.1
+  resolution: "args@npm:5.0.1"
   dependencies:
     camelcase: 5.0.0
     chalk: 2.4.2
     leven: 2.1.0
     mri: 1.1.4
-  checksum: ac39e656090f9364d7a2a42216a572dfe36d3e4d16d87ca4c1c9552a1c325dc222b642124cb96cdeeafb46662922910191f5aa12142cc4ca117b6d85454c8423
+  checksum: 51e2a05f32d15b8e292f000e6b232118df61b8f4fd446b17bb4e99df9ab47fe2c4a01924d7f967a6f08e82f9c19be277b08ed22bceff058aca849144ef8efed3
   languageName: node
   linkType: hard
 
@@ -4720,7 +4720,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"daisyui@npm:^2.14.3":
+"daisyui@npm:^2.15.3":
   version: 2.15.3
   resolution: "daisyui@npm:2.15.3"
   dependencies:
@@ -5538,6 +5538,13 @@ __metadata:
     snapdragon: ^0.8.1
     to-regex: ^3.0.1
   checksum: a41531b8934735b684cef5e8c5a01d0f298d7d384500ceca38793a9ce098125aab04ee73e2d75d5b2901bc5dddd2b64e1b5e3bf19139ea48bac52af4a92f1d00
+  languageName: node
+  linkType: hard
+
+"fast-copy@npm:^2.1.1":
+  version: 2.1.3
+  resolution: "fast-copy@npm:2.1.3"
+  checksum: 5d1a4a218304893ed0c4593b5d21b282202f9e74ed33fee261c0c574e81003863e0c6fd0d857451dfe15f3e1919acd8084ce52c2457c9410e61e1aea9b388029
   languageName: node
   linkType: hard
 
@@ -7058,21 +7065,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "karaoke@workspace:."
   dependencies:
-    "@adonisjs/assembler": ^5.6.2
-    "@adonisjs/attachment-lite": ^1.0.4
-    "@adonisjs/auth": ^8.1.0
-    "@adonisjs/bouncer": ^2.2.7
-    "@adonisjs/core": ^5.7.6
-    "@adonisjs/i18n": ^1.5.5
-    "@adonisjs/lucid": ^17.2.0
-    "@adonisjs/lucid-slugify": ^2.1.5
-    "@adonisjs/mail": ^8.0.1
-    "@adonisjs/repl": ^3.1.10
-    "@adonisjs/session": ^6.2.2
-    "@adonisjs/shield": ^7.0.10
-    "@adonisjs/view": ^6.1.4
+    "@adonisjs/assembler": ^5.7.0
+    "@adonisjs/attachment-lite": ^1.0.7
+    "@adonisjs/auth": ^8.2.1
+    "@adonisjs/bouncer": ^2.3.0
+    "@adonisjs/core": ^5.8.3
+    "@adonisjs/i18n": ^1.5.6
+    "@adonisjs/lucid": ^18.0.1
+    "@adonisjs/lucid-slugify": ^2.2.0
+    "@adonisjs/mail": ^8.1.2
+    "@adonisjs/repl": ^3.1.11
+    "@adonisjs/session": ^6.4.0
+    "@adonisjs/shield": ^7.0.11
+    "@adonisjs/view": ^6.1.5
     "@alpinejs/focus": ^3.10.2
-    "@babel/plugin-transform-runtime": ^7.17.10
+    "@babel/plugin-transform-runtime": ^7.18.5
     "@eidellev/adonis-stardust": ^2.2.0
     "@eidellev/inertia-adonisjs": 6.2.0
     "@hotwired/turbo": ^7.1.0
@@ -7080,7 +7087,7 @@ __metadata:
     "@inertiajs/inertia-svelte": latest
     "@inertiajs/progress": ^0.2.7
     "@symfony/webpack-encore": ^2.1.0
-    "@tailwindcss/forms": ^0.5.1
+    "@tailwindcss/forms": ^0.5.2
     "@tailwindcss/typography": ^0.5.2
     "@types/socket.io": ^3.0.2
     "@vime/core": ^5.3.1
@@ -7091,29 +7098,29 @@ __metadata:
     autoprefixer: ^10.4.7
     color: ^4.2.3
     compress.js: ^1.2.2
-    daisyui: ^2.14.3
+    daisyui: ^2.15.3
     flatpickr: ^4.6.13
     luxon: ^2.4.0
     pg: ^8.7.3
     phc-argon2: ^1.1.3
-    pino-pretty: ^7.6.1
-    postcss-loader: ^6.2.1
+    pino-pretty: ^8.0.0
+    postcss-loader: ^7.0.0
     prettier: ^2.6.2
-    prettier-plugin-tailwindcss: ^0.1.10
+    prettier-plugin-tailwindcss: ^0.1.11
     proxy-addr: ^2.0.7
     random-string-gen: ^1.1.4
     reflect-metadata: ^0.1.13
-    socket.io: ^4.5.0
-    socket.io-client: ^4.5.0
+    socket.io: ^4.5.1
+    socket.io-client: ^4.5.1
     source-map-support: ^0.5.21
     svelte: ^3.48.0
-    svelte-loader: ^3.1.2
+    svelte-loader: ^3.1.3
     svelte-qrcode: ^1.0.0
-    tailwindcss: ^3.0.24
-    typescript: ~4.6
+    tailwindcss: ^3.1.2
+    typescript: ~4.7
     uuid: ^8.3.2
     youch: ^3.2.0
-    youch-terminal: ^2.1.3
+    youch-terminal: ^2.1.4
     ytdl-core: ^4.11.0
   languageName: unknown
   linkType: soft
@@ -7181,19 +7188,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knex-dynamic-connection@npm:^2.1.3":
-  version: 2.1.3
-  resolution: "knex-dynamic-connection@npm:2.1.3"
+"knex-dynamic-connection@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "knex-dynamic-connection@npm:3.0.0"
   dependencies:
-    debug: ^4.3.3
-    knex: ^1.0.3
-  checksum: 5c9bb3d45898e0f3be3f3d185a96b05b9c534a6ff2c49017c57064090c4ad1b23f7463493d8b3adea43861bacc85f2cda7ce720a8ca3074efea39c6fc9006232
+    debug: ^4.3.4
+    knex: ^2.0.0
+  peerDependencies:
+    knex: ^2.0.0
+  checksum: 260042ecc2a45d954f43b0b68f7faa7b4028afd4465293594bce418b4d1bbc48b9c9bce339fa73621ef7ddda9cb3ea364cf3be4f3df13bf087d899bd6c702f8a
   languageName: node
   linkType: hard
 
-"knex@npm:^1.0.3, knex@npm:^1.0.5":
-  version: 1.0.7
-  resolution: "knex@npm:1.0.7"
+"knex@npm:^2.0.0":
+  version: 2.1.0
+  resolution: "knex@npm:2.1.0"
   dependencies:
     colorette: 2.0.16
     commander: ^9.1.0
@@ -7210,8 +7219,6 @@ __metadata:
     tarn: ^3.0.2
     tildify: 2.0.0
   peerDependenciesMeta:
-    "@vscode/sqlite3":
-      optional: true
     better-sqlite3:
       optional: true
     mysql:
@@ -7222,11 +7229,13 @@ __metadata:
       optional: true
     pg-native:
       optional: true
+    sqlite3:
+      optional: true
     tedious:
       optional: true
   bin:
     knex: bin/cli.js
-  checksum: 57608a3a6813cb66da6f5a078016338166c53ab2cbaab66e81492352023db88fc158e4ad6bbd2156cd9d7c9cac14a4b1e581dd8232b4f9bab2285ea6f1efc5cf
+  checksum: 60ff38de9135cba3ec3daef37e2b7f4fe07a03636da3c2eaed0072a1dbc96a1dca6698ad8645c0c3501b3a8cb6d3da29409cdcb7513c21083041cfecc2ae3e2e
   languageName: node
   linkType: hard
 
@@ -7412,7 +7421,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:^2.3.1, luxon@npm:^2.4.0":
+"luxon@npm:^2.4.0":
   version: 2.4.0
   resolution: "luxon@npm:2.4.0"
   checksum: 6071028d65cc3d3bdab5e6a3995dd97411c92bb3b3163a02deb7b7014318ad3a6fd750ae77131c42141b717c14aef8880d3130f265281d500ef2365f7265b3f3
@@ -8744,26 +8753,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino-pretty@npm:^7.6.1":
-  version: 7.6.1
-  resolution: "pino-pretty@npm:7.6.1"
+"pino-pretty@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "pino-pretty@npm:8.0.0"
   dependencies:
-    args: ^5.0.1
+    args: 5.0.1
     colorette: ^2.0.7
     dateformat: ^4.6.3
+    fast-copy: ^2.1.1
     fast-safe-stringify: ^2.0.7
     joycon: ^3.1.1
     on-exit-leak-free: ^0.2.0
     pino-abstract-transport: ^0.5.0
     pump: ^3.0.0
     readable-stream: ^3.6.0
-    rfdc: ^1.3.0
     secure-json-parse: ^2.4.0
     sonic-boom: ^2.2.0
     strip-json-comments: ^3.1.1
   bin:
     pino-pretty: bin.js
-  checksum: 31e0e03bfd94aabdc03744e19a9599e200f94d962cbeb04f3b6fe1eb6caadb92434c41cef948fe039773966c83e5669b52470a355ada7b5affd801ce1d5a67aa
+  checksum: 8117a3ba29f00c514f3be19451ad64810d6757fa98b23109df8633dff9e01f4e88a70a62fc588105a92c1683c0a49e1f67af4e3466a5c4f6c6f355986c670279
   languageName: node
   linkType: hard
 
@@ -8946,17 +8955,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-loader@npm:^6.2.1":
-  version: 6.2.1
-  resolution: "postcss-loader@npm:6.2.1"
+"postcss-loader@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "postcss-loader@npm:7.0.0"
   dependencies:
     cosmiconfig: ^7.0.0
     klona: ^2.0.5
-    semver: ^7.3.5
+    semver: ^7.3.7
   peerDependencies:
     postcss: ^7.0.0 || ^8.0.1
     webpack: ^5.0.0
-  checksum: e40ae79c3e39df37014677a817b001bd115d8b10dedf53a07b97513d93b1533cd702d7a48831bdd77b9a9484b1ec84a5d4a723f80e83fb28682c75b5e65e8a90
+  checksum: b8e51e99898cae8400de8690752b64af2ca1e3eed7c0d696c9e1ec6fc45dd334c958748247632c48109a519fb59f7545d0b8fe4b52479d982ca3ec4eb8e3b0c9
   languageName: node
   linkType: hard
 
@@ -9304,7 +9313,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-tailwindcss@npm:^0.1.10":
+"prettier-plugin-tailwindcss@npm:^0.1.11":
   version: 0.1.11
   resolution: "prettier-plugin-tailwindcss@npm:0.1.11"
   peerDependencies:
@@ -9884,13 +9893,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rfdc@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "rfdc@npm:1.3.0"
-  checksum: fb2ba8512e43519983b4c61bd3fa77c0f410eff6bae68b08614437bc3f35f91362215f7b4a73cbda6f67330b5746ce07db5dd9850ad3edc91271ad6deea0df32
-  languageName: node
-  linkType: hard
-
 "rimraf@npm:^2.6.3":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
@@ -10329,7 +10331,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"socket.io-client@npm:^4.5.0":
+"socket.io-client@npm:^4.5.1":
   version: 4.5.1
   resolution: "socket.io-client@npm:4.5.1"
   dependencies:
@@ -10362,7 +10364,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"socket.io@npm:*, socket.io@npm:^4.5.0":
+"socket.io@npm:*, socket.io@npm:^4.5.1":
   version: 4.5.1
   resolution: "socket.io@npm:4.5.1"
   dependencies:
@@ -10781,7 +10783,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-loader@npm:^3.1.2":
+"svelte-loader@npm:^3.1.3":
   version: 3.1.3
   resolution: "svelte-loader@npm:3.1.3"
   dependencies:
@@ -10841,7 +10843,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.0, tailwindcss@npm:^3.0.24":
+"tailwindcss@npm:^3.0, tailwindcss@npm:^3.1.2":
   version: 3.1.2
   resolution: "tailwindcss@npm:3.1.2"
   dependencies:
@@ -11102,23 +11104,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.6":
-  version: 4.6.4
-  resolution: "typescript@npm:4.6.4"
+"typescript@npm:~4.7":
+  version: 4.7.3
+  resolution: "typescript@npm:4.7.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: e7bfcc39cd4571a63a54e5ea21f16b8445268b9900bf55aee0e02ad981be576acc140eba24f1af5e3c1457767c96cea6d12861768fb386cf3ffb34013718631a
+  checksum: fd13a1ce53790a36bb8350e1f5e5e384b5f6cb9b0635114a6d01d49cb99916abdcfbc13c7521cdae2f2d3f6d8bc4a8ae7625edf645a04ee940588cd5e7597b2f
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@~4.6#~builtin<compat/typescript>":
-  version: 4.6.4
-  resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=493e53"
+"typescript@patch:typescript@~4.7#~builtin<compat/typescript>":
+  version: 4.7.3
+  resolution: "typescript@patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=493e53"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8cff08bf66d9ecfbf9fcc5edde04a5a7923e6cac3b21d99b4e9a06973bf5bd7f9a83ec7eed24129c1b9e13fd861de8c1070110d4b9ce9f18ab57c6999e9c9a6f
+  checksum: 8257ce7ecbbf9416da60045a76a99d473698ca9e973fa0ddab7137cacb1587255431176cbbcc801a650938c4dc8109ab88355774829a714fabe56a53a2fe4524
   languageName: node
   linkType: hard
 
@@ -11690,7 +11692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"youch-terminal@npm:^2.1.3":
+"youch-terminal@npm:^2.1.4":
   version: 2.1.4
   resolution: "youch-terminal@npm:2.1.4"
   dependencies:
