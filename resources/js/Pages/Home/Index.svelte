@@ -62,10 +62,10 @@
           <h1 class="text-4xl">{ t['front.home.title'] } { $room.uri }</h1>
           <p>{ t['front.home.description'] }</p>
         </div>
-        <div class="flex gap-4 text-6xl text-white">
-          <div class="flex items-center justify-center bg-blue-500 rounded-box w-28 h-28">{ $room.pin[0] }</div>
-          <div class="flex items-center justify-center bg-blue-500 rounded-box w-28 h-28">{ $room.pin[1] }</div>
-          <div class="flex items-center justify-center bg-blue-500 rounded-box w-28 h-28">{ $room.pin[2] }</div>
+        <div class="flex text-6xl text-white">
+          <div class="flex items-center justify-center bg-blue-500 rounded-box w-28 h-28 mr-5">{ $room.pin[0] }</div>
+          <div class="flex items-center justify-center bg-blue-500 rounded-box w-28 h-28 mr-5">{ $room.pin[1] }</div>
+          <div class="flex items-center justify-center bg-blue-500 rounded-box w-28 h-28 mr-5">{ $room.pin[2] }</div>
           <div class="flex items-center justify-center bg-blue-500 rounded-box w-28 h-28">{ $room.pin[3] }</div>
         </div>
       </div>
