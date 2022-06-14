@@ -2,7 +2,6 @@
   import { Inertia } from '@inertiajs/inertia'
   import { stardust } from '@eidellev/adonis-stardust'
   import { socket, pin, player } from '../../stores'
-  import picto from './micro.svg'
 
   // if ($pin === null) {
   //   Inertia.get(stardust.route('links.index'))
