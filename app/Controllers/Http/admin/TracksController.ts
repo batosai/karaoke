@@ -1,6 +1,7 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Track from 'App/Models/Track'
 import TrackValidator from 'App/Validators/TrackValidator'
+import Route from '@ioc:Adonis/Core/Route'
 import ytdl from 'ytdl-core'
 
 export default class TracksController {
@@ -11,7 +12,7 @@ export default class TracksController {
     const limit = 10
 
     const tracks = await Track.query().paginate(page, limit)
-    // tracks.baseUrl(Route.builder().make('admin_tracks.index'))
+    tracks.baseUrl(Route.builder().make('admin_tracks.index'))
 
     return view.render('admin/tracks/index', {
       tracks,
