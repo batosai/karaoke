@@ -21,6 +21,12 @@ export default class Track extends BaseModel {
   @column()
   public url: string
 
+  @column()
+  public preview: string
+
+  @column()
+  public viewCount: number
+
   @column({ serializeAs: null })
   public userId: string
 

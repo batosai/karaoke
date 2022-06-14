@@ -54,9 +54,10 @@
   <div class="relative">
     <div class="divide-y divide-slate-200/5">
       {#each tracks as track}
-        <div class="flex gap-4 p-4">
+        <div class="flex gap-4 p-4 relative">
+          <img src="{ track.preview }" class="absolute h-12 shadow-lg" alt="" />
           <button
-            class="btn btn-ghost w-full justify-start text-left"
+            class="btn btn-ghost w-full pl-24 justify-start text-left"
             on:click={toggleModal(track)}
           >
             {track.title}
