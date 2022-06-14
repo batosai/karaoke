@@ -3,54 +3,54 @@
   import { stardust } from '@eidellev/adonis-stardust'
   import { socket, pin, player } from '../../stores'
 
-  // if ($pin === null) {
-  //   Inertia.get(stardust.route('links.index'))
-  // }
-  // else {
-  //   const { RTCPeerConnection, RTCSessionDescription } = window
-  //   const peerConnection = new RTCPeerConnection()
+  if ($pin === null) {
+    Inertia.get(stardust.route('links.index'))
+  }
+  else {
+    const { RTCPeerConnection, RTCSessionDescription } = window
+    const peerConnection = new RTCPeerConnection()
 
-  //   navigator.mediaDevices
-  //     .getUserMedia({ audio: true, video: false })
-  //     .then(async mediaStream => {
+    navigator.mediaDevices
+      .getUserMedia({ audio: true, video: false })
+      .then(async mediaStream => {
 
-  //       // addTrack
-  //       mediaStream
-  //         .getTracks()
-  //         .forEach(track => peerConnection.addTrack(track, mediaStream))
+        // addTrack
+        mediaStream
+          .getTracks()
+          .forEach(track => peerConnection.addTrack(track, mediaStream))
 
-  //       // createOffer
-  //       const offer = await peerConnection.createOffer()
-  //       await peerConnection.setLocalDescription(
-  //         new RTCSessionDescription(offer),
-  //       )
-  //       $socket.emit('offer:make', { pin: $pin, offer })
+        // createOffer
+        const offer = await peerConnection.createOffer()
+        await peerConnection.setLocalDescription(
+          new RTCSessionDescription(offer),
+        )
+        $socket.emit('offer:make', { pin: $pin, offer })
 
-  //       // answerMade
-  //       $socket.on('answer:made', async data => {
-  //         await peerConnection.setRemoteDescription(
-  //           new RTCSessionDescription(data.answer),
-  //         )
-  //       })
+        // answerMade
+        $socket.on('answer:made', async data => {
+          await peerConnection.setRemoteDescription(
+            new RTCSessionDescription(data.answer),
+          )
+        })
 
-  //       // sendCandidate
-  //       peerConnection.onicecandidate = e => {
-  //         if (e.candidate) {
-  //           // Send the candidate to the remote peer
-  //           $socket.emit('candidature:create', { pin: $pin, candidate: e.candidate })
-  //         }
-  //       }
-  //     })
-  //     .catch(function (err) {
-  //       console.log(err.name + ': ' + err.message)
-  //     })
+        // sendCandidate
+        peerConnection.onicecandidate = e => {
+          if (e.candidate) {
+            // Send the candidate to the remote peer
+            $socket.emit('candidature:create', { pin: $pin, candidate: e.candidate })
+          }
+        }
+      })
+      .catch(function (err) {
+        console.log(err.name + ': ' + err.message)
+      })
 
 
-  //   $socket.on('track:removed', data => {
-  //     player.set(data)
-  //     Inertia.get(stardust.route('devices.list'))
-  //   })
-  // }
+    $socket.on('track:removed', data => {
+      player.set(data)
+      Inertia.get(stardust.route('devices.list'))
+    })
+  }
 
 </script>
 
