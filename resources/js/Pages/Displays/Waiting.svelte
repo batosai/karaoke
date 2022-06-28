@@ -9,7 +9,7 @@
   <div class="hero-content text-center">
 
     <div>
-      <div class="grid grid-cols-[repeat({ $players.length < 5 ? $players.length : 4 },_minmax(0,_1fr))] gap-6 text-center">
+      <div class="grid grid-cols-4 gap-6 text-center">
         {#each $players as p}
           <div>
             <div class="avatar { p.track ? 'online' : 'offline' }">

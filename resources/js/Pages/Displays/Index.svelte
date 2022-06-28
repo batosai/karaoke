@@ -1,12 +1,17 @@
 <script>
   import { Inertia } from '@inertiajs/inertia'
   import { stardust } from '@eidellev/adonis-stardust'
-  import { usePlayerStore } from '@vime/svelte'
+  import {
+		Player,
+		Video,
+    Ui,
+    ClickToPlay,
+    usePlayerStore
+	} from '@vime/svelte'
   import { socket, pin, players, tracks, player } from '../../stores'
   import { initialeState, peer } from './utils'
 
   import QrCode from './QrCode'
-  import Player from './Player'
   import Waiting from './Waiting'
 
   export let t
@@ -15,7 +20,7 @@
   const peerConnections = {}
 
   let state = { ...initialeState }
-  const { paused, playbackEnded } = usePlayerStore(() => state.player)
+  const { paused } = usePlayerStore(() => state.player)
 
   if ($pin === null) {
     Inertia.get(stardust.route('home'))
@@ -60,41 +65,79 @@
 
   $: if ($players.length === 0) {
     clearInterval(state.interval)
-    paused.set(true)
+    // paused.set(true)
+    $paused = true
     state = { ...initialeState }
   }
 
   // Ended video
-  const unsubscribe = playbackEnded.subscribe(isPlaybackEnded => {
-    if (isPlaybackEnded) {
-      if (state.currentTrack === $tracks.length-1) {
+
+  const playbackEnded = (e) => {
+    if (e.detail === true) {
+      if (state.currentTrack === $tracks.length) {
         state = { ...initialeState }
         $socket.emit('track:ended', { pin: $pin })
       } else {
         state.played = false
-        state.currentTrack++
         state.count = initialeState.count
         timer()
       }
     }
-  })
+  }
 
   function timer() {
     state.interval = setInterval(() => {
       state.count--
       if (state.count === 0) {
-        clearInterval(state.interval)
         state.played = true
-        paused.set(false)
-        state.trackUrl = stardust.route('medias.show', { id: $tracks[state.currentTrack] })
+        state.currentTrack++
+        // paused.set(false)
+        $paused = false
+        state.trackUrl = stardust.route('medias.show', { id: $tracks[state.currentTrack-1] })
+        clearInterval(state.interval)
       }
     }, 1000)
   }
 
-  unsubscribe()
-
 </script>
 
 <QrCode />
-<Player bind:player={state.player} state={state} />
+
+<div class="hero min-h-screen { state.played ? 'block' : 'hidden' }">
+  <Player
+    controls={false}
+    autoplay
+    bind:this={state.player}
+    on:vmPlaybackEnded={playbackEnded}
+    class="{ state.played ? '' : 'hidden' }"
+  >
+    <Video>
+      <source data-src="{ state.trackUrl }"  type="video/mp4" />
+    </Video>
+
+    <Ui>
+      <ClickToPlay />
+    </Ui>
+  </Player>
+
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+
+    </div>
+  </div>
+</div>
+
+<footer class="footer p-4 absolute bottom-0 z-[100]">
+  <div class="avatar-group -space-x-6">
+    {#each $players as p}
+      <div class="avatar">
+        <div class="w-12">
+          <img src="{ p.avatar }" alt="" />
+          <audio controls="true" autoplay="true" id={p.socketId} />
+        </div>
+      </div>
+    {/each}
+  </div>
+</footer>
+
 <Waiting state={state} t={t} />
