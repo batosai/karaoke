@@ -4,7 +4,7 @@
   import { socket, pin, player } from '../../stores'
 
   if ($pin === null) {
-    Inertia.get(stardust.route('links.index'))
+    Inertia.get(stardust.route('home'))
   }
   else {
     const { RTCPeerConnection, RTCSessionDescription } = window
