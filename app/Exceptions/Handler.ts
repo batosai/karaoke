@@ -13,8 +13,10 @@
 |
 */
 
+import Sentry from '@ioc:Adonis/Addons/Sentry'
 import Logger from '@ioc:Adonis/Core/Logger'
 import HttpExceptionHandler from '@ioc:Adonis/Core/HttpExceptionHandler'
+import Application from '@ioc:Adonis/Core/Application'
 
 export default class ExceptionHandler extends HttpExceptionHandler {
   protected statusPages = {
@@ -25,5 +27,12 @@ export default class ExceptionHandler extends HttpExceptionHandler {
 
   constructor() {
     super(Logger)
+  }
+
+  public async handle (error, ctx) {
+    if (Application.nodeEnvironment === 'production') {
+      Sentry.captureException(error)
+    }
+    return super.handle(error, ctx)
   }
 }

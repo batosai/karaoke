@@ -39,7 +39,8 @@
       "@adonisjs/mail",
       "@adonisjs/lucid-slugify",
       "@adonisjs/i18n",
-      "@eidellev/inertia-adonisjs"
+      "@eidellev/inertia-adonisjs",
+      "adonis5-sentry"
     ]
   }
 }

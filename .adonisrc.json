@@ -52,7 +52,8 @@
     "@adonisjs/lucid-slugify",
     "@adonisjs/i18n",
     "@eidellev/inertia-adonisjs",
-    "@eidellev/adonis-stardust"
+    "@eidellev/adonis-stardust",
+    "adonis5-sentry"
   ],
   "metaFiles": [
     {
