@@ -131,7 +131,7 @@
   <div class="avatar-group -space-x-6">
     {#each $players as p}
       <div class="avatar">
-        <div class="w-12">
+        <div class="w-12 h-12">
           <img src="{ p.avatar }" alt="" />
           <audio controls="true" autoplay="true" id={p.socketId} />
         </div>

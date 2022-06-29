@@ -13,7 +13,7 @@
         {#each $players as p}
           <div>
             <div class="avatar { p.track ? 'online' : 'offline' }">
-              <div class="w-48 rounded-full">
+              <div class="w-48 h-48 rounded-full">
                 <img src="{ p.avatar }" alt="" />
               </div>
             </div>
