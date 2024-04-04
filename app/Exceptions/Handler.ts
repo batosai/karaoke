@@ -30,7 +30,7 @@ export default class ExceptionHandler extends HttpExceptionHandler {
   }
 
   public async handle (error, ctx) {
-    if (Application.nodeEnvironment === 'production') {
+    if (Application.nodeEnvironment === 'production' && error.code !== 'E_ROW_NOT_FOUND') {
       Sentry.captureException(error)
     }
     return super.handle(error, ctx)
