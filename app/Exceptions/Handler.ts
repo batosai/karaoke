@@ -31,6 +31,10 @@ export default class ExceptionHandler extends HttpExceptionHandler {
 
   public async handle (error, ctx) {
     if (Application.nodeEnvironment === 'production' && error.code !== 'E_ROW_NOT_FOUND') {
+      Sentry.setTag('url', ctx.request.url())
+      Sentry.setTag('hostname', ctx.request.hostname())
+      Sentry.setTag('ajax', ctx.request.ajax() ? true : false)
+      Sentry.setTag('method', ctx.request.method())
       Sentry.captureException(error)
     }
     return super.handle(error, ctx)
